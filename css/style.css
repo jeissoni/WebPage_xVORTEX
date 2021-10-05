@@ -18,17 +18,17 @@ Version: 1.0
     src: url(fonts/HelveticaLTStd_REGULAR.otf);
 }
 @font-face {
-    font-family: Rixel;
-    src: url(fonts/Rixel.otf);
+    font-family: PressStart2P-Regular;
+    src: url(fonts/PressStart2P-Regular.ttf);
 }
 @font-face {
-    font-family: VCR_OSD_MONO;
-    src: url(fonts/VCR_OSD_MONO.otf);
+    font-family: PressStart2P-Regular;
+    src: url(fonts/PressStart2P-Regular.ttf);
 }
 body {
     margin: 0;
-    font-family: Rixel;
-    font-size: 16px;
+    font-family: PressStart2P-Regular;
+    font-size: 15px;
     text-align: center;
     width: 100%;
     overflow-x: hidden;
@@ -79,7 +79,20 @@ background: linear-gradient(0deg, rgba(27,27,27,1) 0%, rgba(27,27,27,1) 65%) !im
 
 h1 {
     color: #fff;
+    font-size: 35px;
 }
+
+h2 {
+    color: #fff;
+    font-size: 25px;
+}
+
+h3{
+  color: #fff;
+  font-size: 15px;
+}
+
+
 
 h5 {
   color: #fff;
@@ -88,14 +101,19 @@ h5 {
 p {
     color: #D0D0D0;
     font-family: arial;
+    font-size: 18px;
+    
 }
 
-h2 {
-    color: #fff;
-}
+
 
 h2 span {
     color: #00C4FF;
+}
+
+
+h3 span {
+  color: #00C4FF;
 }
 
 .bg-universe {
@@ -276,7 +294,7 @@ z-index: 90;
 }
 
 .title {
-    font-size: 45px;
+    font-size: 30px;
     color: #fff;
 }
 
@@ -293,7 +311,7 @@ z-index: 90;
 box-sizing: border-box;
 border-radius: 28.5px;
 color: #fff;
-font-size: 25px;
+font-size: 15px;
 cursor:pointer;
 }
 
@@ -641,6 +659,7 @@ p b {
     }
   }
   
+  /*
   .cd-timeline-content {
     position: relative;
     margin-left: 60px;
@@ -688,6 +707,9 @@ p b {
       }
     }
   }
+  */
+
+
   .cd-timeline-content:after {
     content: "";
     display: table;
@@ -814,7 +836,8 @@ p b {
       }
 
       .title {
-        font-size: 35px;
+        margin-top: 50px;
+        font-size: 25px;
         text-align: center;
       }
 
@@ -832,15 +855,17 @@ p b {
       }
 
       .descripcion {
+          margin-top: 25px;
           text-align: center;
           color: #fff;
-          font-size: 14px;
+          font-size: 20px;
       }
 
+    /*
       .navbar-dark .navbar-toggler-icon {
         background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
     }
-
+    */
       .partner {
           margin-bottom: 30px;
       }

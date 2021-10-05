@@ -1,7 +1,4 @@
-//const Web3 = require('web3');
 
-//import Web3 from '../js/dist/web3.min.js';
-//import { Web3 } from '../js/dist/web3.min.js';
 let web3;
 let from;
 const dvContent = document.getElementById('dvContent');
