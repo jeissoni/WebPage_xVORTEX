@@ -1,232 +1,112 @@
-
-let web3;
-let from;
 const dvContent = document.getElementById('dvContent');
-//console.log(add);
 
-
-const btnInvertir = document.getElementById('nvInvestment');
-const itemAbautUs = document.getElementById('nvAbautUs');
-const itemBlog = document.getElementById('nvBlog');
-const itemClass = document.getElementById('nvClass');
-const itemContac = document.getElementById('nvContac');
-const nvBar = document.getElementById('nvbar');
 const itemHome = document.getElementById('nvHome');
-const aHome = document.getElementById('aHome');
+const itemAbautUs = document.getElementById('nvAbautUs');
+const itemPortfolio = document.getElementById('nvPortfolio');
+const itemBlog = document.getElementById('nvBlog');
+const itemContac = document.getElementById('nvContac');
 
+// *********    Efecto munfdo  ******************************
+    let mundo = document.getElementById('mundo');
+    let bg_stone = document.getElementById('bg-stone');
+    let bg_stone_2 = document.getElementById('bg-stone-2');
 
-
-// const address = '0x2e2b0001A14Aa207dBC09861476b58c60E003896';
-const address = '0x58feD4C4607f1313c3E7e2b08D57d2c91Ef3E9A8';
-//import * as data from '../contract/contract.json';
-
-//var web3 = new Web3(Web3.givenProvider);
-
-var ventaAbi;
-fetch("contract/contract.json")
-.then(response => {
-   return response.json();
-})
-.then(data => ventaAbi = data);
-
+    window.addEventListener('scroll', function () {
+      let value = window.scrollY;
+      mundo.style.top = value * 0.25 + 130 + 'px';
+      bg_stone.style.bottom = value * 0.15 + 150 + 'px';
+      bg_stone_2.style.left = value * 0.25 + 'px';
+    });
+// *********************************************************
 
 
 async function fetchHtmlAsText(url) {
-    const response = await fetch(url);
-    return await response.text();
+  const response = await fetch(url);
+  return await response.text();
 }
 
+function inactiveClass(idItem) {
 
-function fnUrlAsJson(urlJson){
-  const response = fetch(urlJson);
-  return response.json();
-}
+  console.log(idItem)
 
-//const ventaAbi = fnUrlAsJson(urlJson);
+  switch (idItem) {
+    case itemHome:
+      itemAbautUs.className = inactiveClassHome.replace("active", "")
+      itemPortfolio.className = inactiveClassHome.replace("active", "")
+      itemBlog.className = inactiveClassHome.replace("active", "")
+      break;
 
-/*
-window.addEventListener('load', function () {
-  if (typeof web3 !== 'undefined') {
-      console.log('Web3 Detected! ' + web3.currentProvider.constructor.name)
-      window.web3 = new Web3(web3.currentProvider);
+    case itemAbautUs:
+      itemHome.className = itemHome.className.replace("active", "")
+      itemPortfolio.className = itemPortfolio.className.replace("active", "")
+      itemBlog.className = itemBlog.className.replace("active", "")
+      break;
+
+    case itemPortfolio:
+      itemHome.className = itemHome.className.replace("active", "")
+      itemAbautUs.className = itemAbautUs.className.replace("active", "")
+      itemBlog.className = itemBlog.className.replace("active", "")
+      break;
+
+    case itemBlog:
+      itemHome.className = itemHome.className.replace("active", "")
+      itemAbautUs.className = itemAbautUs.className.replace("active", "")
+      itemPortfolio.className = itemPortfolio.className.replace("active", "")
+      break;    
   }
-})
-*/
-
-
-async function isOpen() {
-  try {
-    web3 = new Web3(window.ethereum);
-    const contractVenta = new web3.eth.Contract(ventaAbi, address);
-    const isOpen = await contractVenta.methods.isOpen().call();
-    return isOpen;
-  } catch (error) {
-    return false;
-  }
 
 }
 
-async function rate() {
-  let open = await isOpen();
-  if (open) {
-    try {
-      web3 = new Web3(window.ethereum);
-      const contractVenta = new web3.eth.Contract(ventaAbi, address);
-      const isOpen = await contractVenta.methods.isOpen().call();
-      return isOpen;
-    } catch (error) {}
-  }else{
-    return 0;
-  }
-}
 
-async function initialDate (){
-  let open = await isOpen();
-  //if (open) {
-    try {
-      web3 = new Web3(window.ethereum);
-      const contractVenta = new web3.eth.Contract(ventaAbi, address);
-      const initialDate = await contractVenta.methods.openingTime().call();
-      var d = new Date(0);
-      d.setUTCSeconds(initialDate);
-      console.log(d);
-      return d;
-    } catch (error) {
-      return 0;
-    }
-  //}
-}
-
-
-
-async function buyTokens(){
-  let open = await isOpen();
-  //if (open) {}
-  try {
-      web3 = new Web3(window.ethereum);
-      const contractVenta = new web3.eth.Contract(ventaAbi, address);
-
-      const inpEth = document.getElementById('iptEth').value;
-
-      const ethToWei = web3.utils.toWei(inpEth ,"ether");
-
-      console.log(ethToWei);     
-
-
-      contractVenta.methods.buyTokens(from).send({ from: from, value : ethToWei}, function(error, transactionHash){
-        const lblHast = document.getElementById('lblHast');
-        const lblError = document.getElementById('lblError');
-
-        lblHast.innerHTML = 'Hast: '+transactionHash;
-        lblError.innerHTML = 'Error! :' + error;
-      });
-      
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
-
-async function fnAbautUs (){  
-  const url = 'html/aboutUs.html'; 
-  dvContent.innerHTML = await fetchHtmlAsText(url);
-  nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-verde pt-lg-3 pt-2 aos-init aos-animate';
-  
-}
-
-
-async function fnBlog (){
-  const url = 'html/blog.html';
-  dvContent.innerHTML = await fetchHtmlAsText(url);
-  nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-azul pt-lg-3 pt-2 aos-init aos-animate';
-}
-
-
-async function fnClass(){
-  const url = 'html/class.html';
-  dvContent.innerHTML = await fetchHtmlAsText(url);
-  nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-rosa pt-lg-3 pt-2 aos-init aos-animate';
-}
-
-
-async function fnContact(){
-  const url = 'html/contact.html';
-  dvContent.innerHTML = await fetchHtmlAsText(url);
-  nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-morado pt-lg-3 pt-2 aos-init aos-animate';
-}
-
-
-async function fnHome(){
+async function fnHome() {
   window.location.href = 'index.html';
 }
 
+async function fnAbautUs() {
+  const url = 'html/aboutUs.html';
+  dvContent.className = "container"
+  dvContent.innerHTML = await fetchHtmlAsText(url)
 
-async function fnInvestment(event){
+  inactiveClass(itemAbautUs)
+  itemAbautUs.className = itemAbautUs.className + " active"
+}
 
-    web3 = new Web3(window.ethereum);
-    //console.log(web3);
-    // const dvContent = document.getElementById('dvContent');
+async function fnPortfolio() {
+  const url = 'html/portfolio.html';
+  dvContent.className = "container"
+  dvContent.innerHTML = await fetchHtmlAsText(url);
 
-    
-    const url = 'html/investment.html'; 
-    dvContent.innerHTML = await fetchHtmlAsText(url);   
-    nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-naranja pt-lg-3 pt-2 aos-init aos-animate';
-
-
-    const btnConect = document.getElementById("btnConect");
-    // const btnOpening = document.getElementById('btnOpening');
-    const btnSend =  document.getElementById('btnSend');
-    
-
-    btnConect.onclick = conect;    
-    // btnOpening.onclick = initialDate;
-    btnSend.onclick = buyTokens;
+  inactiveClass(itemPortfolio)
+  itemPortfolio.className = itemPortfolio.className + " active"
 }
 
 
-async function conect() {
-  if (window.ethereum) {
-    let open = await isOpen();
-    //if (open) {
-      web3 = new Web3(window.ethereum);
-      
-      try {
-        await window.ethereum.request({
-          method: 'eth_requestAccounts'
-        });
-        // const labelCount = document.getElementById('lblcount');
-        const iptConect = document.getElementById('iptConect');
-        const accounts = await web3.eth.getAccounts();
+async function fnBlog() {
+  const url = 'html/blog.html';
+  dvContent.className = "container"
+  dvContent.innerHTML = await fetchHtmlAsText(url);
 
-        from = accounts[0];
-        iptConect.value = from;
-        const btnSend =  document.getElementById('btnSend');
-        const iptEth = document.getElementById('iptEth');
-        btnSend.disabled = false;
-        iptEth.disabled = false;
+  inactiveClass(itemBlog)
+  itemBlog.className = itemBlog.className + " active"
 
-        btnSend.className = 'btn btn-outline-primary btn-block';
-        // labelCount.innerText = 'Cuenta conectada: '+ from;
-      } catch (err) {
-        console.log(err);
-        alert('Usted Rechazo la conexión');
-      }
-/*
-    } else {
-      alert("Is close ICO")
-    }
-*/
-  } else {
-    alert('Web3 es Requerido');
-  }
-};
+}
 
 
-btnInvertir.onclick = fnInvestment;
+async function fnContact() {
+  // const url = 'html/contact.html';
+  dvContent.className = "container"
+  dvContent.innerHTML = await fetchHtmlAsText(url);
+  // nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-morado pt-lg-3 pt-2 aos-init aos-animate';
+}
+
+
+async function fnCertik() {
+  window.open('https://www.certik.com/projects/xvortex', '_blank')
+}
+
+
 itemAbautUs.onclick = fnAbautUs;
 itemBlog.onclick = fnBlog;
-itemClass.onclick = fnClass;
 itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
-aHome.onclick = fnHome;
+itemPortfolio.onclick = fnPortfolio;
