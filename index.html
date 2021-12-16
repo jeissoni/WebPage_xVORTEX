@@ -44,59 +44,64 @@
       <div class="collapse navbar-collapse" id="toogleMenu">
         <ul class="navbar-nav ml-lg-auto align-items-lg-center align-items-start py-lg-0 py-4 mr-5 aos-init aos-animate"
           data-aos="zoom-in" data-aos-delay="100" id="texto_a_menu">
+
           <li class="nav-item position-relative">
             <a class="nav-link px-4 active " href="index.html" id="nvHome">
               HOME.
             </a>
             <div class="raya_abajo fondo-blanco"></div>
           </li>
+
           <li class="nav-item position-relative">
-            <a class="nav-link px-lg-3 px-4" href="html/aboutus.html" id="nvAbautUs">
+            <!-- href="html/aboutus.html"  -->
+            <a class="nav-link px-lg-3 px-4" href="#" id="nvAbautUs"> 
               ABOUT US.
             </a>
             <div class="raya_abajo fondo-verde"></div>
           </li>
+        
+
           <li class="nav-item position-relative">
-            <a class="nav-link px-lg-3 px-4" href="html/tokenomics.html" id="nvAbautUs">
-              TOKENOMICS.
+            <a class="nav-link px-lg-3 px-4" href="#" id="nvPortfolio">
+              PORTFOLIO.
             </a>
             <div class="raya_abajo fondo-verde"></div>
           </li>
+
           <li class="nav-item position-relative">
-            <a class="nav-link px-4" href="html/blog.html" id="nvBlog">
+            <!-- href="html/blog.html" -->
+            <a class="nav-link px-4" href="#"  id="nvBlog">
               BLOG.
             </a>
             <div class="raya_abajo fondo-azul"></div>
           </li>
-          <!-- <li class="nav-item position-relative">
-            <a class="nav-link px-4" href="html/staking.html" id="nvInvestment">
-              STAKING.
-            </a>
-            <div class="raya_abajo fondo-naranja"></div>
-          </li> -->
+          
+         
           <li class="nav-item position-relative">
             <a class="nav-link px-4" href="#footer" id="nvContac">
               CONTACT.
             </a>
             <div class="raya_abajo fondo-morado"></div>
           </li>
+
         </ul>
       </div>
     </nav>
   </header>
 
 
-  <section class="banner">
-    <div class="bg-universe">
+  <section class="banner" id="dvContent">
+    <div class="bg-universe" >
       <div class="front-text">
-        <div class="row">
-          <div class="col-4">
+        <div class="row" >
+          <div class="col-4" >
             <div class="welcome">
               <h1 class="title">WE BUILD AND HODL, SO YOU CAN RELAX</h1>
               <div class="descripcion">
-               
-                <p style="text-align: justify;">The xVortex Project is a DeFi protocol built on the Ethereum chain that aims to generate profit for its supporters
-                using a unique mixed investment strategy supervised by a governability system.</p>
+
+                <p style="text-align: justify;">The xVortex Project is a DeFi protocol built on the Ethereum chain that
+                  aims to generate profit for its supporters
+                  using a unique mixed investment strategy supervised by a governability system.</p>
               </div>
               <!-- <a href="../html/staking.html" class="boton-sfy">Get Started</a> -->
               <a href="../html/aboutus.html" class="boton-sfy">Get Started</a>
@@ -120,8 +125,12 @@
       <div id="bg-stone-2" class="bg-stone-2"></div>
       <div class="front-stone"></div>
     </div>
-
   </section>
+
+
+
+
+
   <footer id="footer">
     <div class="container">
       <div class="row">
@@ -168,21 +177,7 @@
         </div>
       </div>
   </footer>
-
-  <script>
-    let mundo = document.getElementById('mundo');
-    let bg_stone = document.getElementById('bg-stone');
-    let bg_stone_2 = document.getElementById('bg-stone-2');
-
-    window.addEventListener('scroll', function () {
-      let value = window.scrollY;
-      mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone.style.bottom = value * 0.15 + 150 + 'px';
-      bg_stone_2.style.left = value * 0.25 + 'px';
-    });
-  </script>
-
-  <script src="js/dist/web3.min.js"></script>
+  
   <script src="js/dist/jquery.min.js"></script>
   <script src="js/dist/popper.min.js"></script>
   <script src="js/dist/bootstrap.min.js"></script>
