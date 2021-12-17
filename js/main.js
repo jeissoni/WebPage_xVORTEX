@@ -5,6 +5,8 @@ const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
+const aHomeAbaut = document.getElementById('homeAbaut')
+
 
 // *********    Efecto munfdo  ******************************
     let mundo = document.getElementById('mundo');
@@ -26,8 +28,6 @@ async function fetchHtmlAsText(url) {
 }
 
 function inactiveClass(idItem) {
-
-  console.log(idItem)
 
   switch (idItem) {
     case itemHome:
@@ -63,7 +63,7 @@ async function fnHome() {
 }
 
 async function fnAbautUs() {
-  const url = 'html/aboutUs.html';
+  const url = 'html/aboutus.html';
   dvContent.className = "container"
   dvContent.innerHTML = await fetchHtmlAsText(url)
 
@@ -110,3 +110,4 @@ itemBlog.onclick = fnBlog;
 itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
+aHomeAbaut.onclick = fnAbautUs
