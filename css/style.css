@@ -575,6 +575,12 @@ p b {
     width: 100%;
 }
 
+
+.col-footer{
+  padding-top : 15px
+}
+
+
 .cd-container {
     width: 90%;
     max-width: 1080px;
