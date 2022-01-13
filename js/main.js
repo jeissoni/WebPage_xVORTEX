@@ -92,12 +92,12 @@ async function fnBlog() {
 }
 
 
-async function fnContact() {
-  // const url = 'html/contact.html';
-  dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url);
-  // nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-morado pt-lg-3 pt-2 aos-init aos-animate';
-}
+// async function fnContact() {
+//   // const url = 'html/contact.html';
+//   dvContent.className = "container"
+//   dvContent.innerHTML = await fetchHtmlAsText(url);
+//   // nvBar.className = 'navbar navbar-expand-lg navbar-dark fondo-morado pt-lg-3 pt-2 aos-init aos-animate';
+// }
 
 
 async function fnCertik() {
@@ -107,7 +107,7 @@ async function fnCertik() {
 
 itemAbautUs.onclick = fnAbautUs;
 itemBlog.onclick = fnBlog;
-itemContac.onclick = fnContact;
+// itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
 aHomeAbaut.onclick = fnAbautUs
