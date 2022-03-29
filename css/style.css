@@ -412,6 +412,13 @@ cursor:pointer;
     transform: scale(1.05)
 }
 
+.card:hover{
+ 
+    border: 2px solid rgba(255, 0, 229, 0.62);;
+
+}
+
+
 .veinte {
     width: 20%;
     align-items: stretch;
