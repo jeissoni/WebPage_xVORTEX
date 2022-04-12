@@ -8,7 +8,6 @@ const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut')
 
 
-
 // *********    Efecto munfdo  ******************************
     let mundo = document.getElementById('mundo');
     let bg_stone = document.getElementById('bg-stone');
@@ -23,10 +22,7 @@ const aHomeAbaut = document.getElementById('homeAbaut')
 // *********************************************************
 
 
-async function fetchHtmlAsText(url) {
-  const response = await fetch(url);
-  return await response.text();
-}
+
 
 function inactiveClass(idItem) {
 
@@ -59,34 +55,64 @@ function inactiveClass(idItem) {
 }
 
 
+
 async function fnHome() {
   window.location.href = 'index.html';
 }
 
-async function fnAbautUs() {
-  const url = 'html/aboutus.html';
+function fnAbautUs() {
+  const url = 'html/aboutus.html';  
+  dvContent.innerHTML = "" 
+
+  fetch(url)
+  .then(response=>
+      response.text() 
+    
+  )
+  .then(text=> {
+    
+    dvContent.innerHTML = text    
+  })
+
   dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url)
 
   inactiveClass(itemAbautUs)
   itemAbautUs.className = itemAbautUs.className + " active"
 }
 
-async function fnPortfolio() {
-  const url = 'html/portfolio.html';
-  dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url);
+function fnPortfolio() {
+  const url = 'html/portfolio.html'
+  dvContent.innerHTML = "" 
 
+  fetch(url)
+  .then(response=> 
+    response.text()
+  )
+  .then(text=> {
+     dvContent.innerHTML = text 
+  });
+
+  dvContent.className = "container"
   inactiveClass(itemPortfolio)
   itemPortfolio.className = itemPortfolio.className + " active"
 }
 
 
-async function fnBlog() {
+function fnBlog() {
   const url = 'html/blog.html';
-  dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url);
+  dvContent.innerHTML = "" 
 
+
+  fetch(url)
+  .then(response=> 
+    response.text()
+  )
+  .then(text=> {
+  
+    dvContent.innerHTML = text
+  });
+
+  dvContent.className = "container"
   inactiveClass(itemBlog)
   itemBlog.className = itemBlog.className + " active"
 }
