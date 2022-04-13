@@ -1,5 +1,8 @@
 const dvContent = document.getElementById('dvContent');
 
+   const itemBotones = document.getElementById('botones-plegables')
+   let itemContainer = document.getElementById('lista-Botones2')
+
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
@@ -108,3 +111,10 @@ itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
 aHomeAbaut.onclick = fnAbautUs
+
+
+
+function toggleMobileMenu() {
+  itemBotones.classList.toggle('open')
+  console.log(itemBotones.classList)
+}

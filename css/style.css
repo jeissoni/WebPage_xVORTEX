@@ -58,46 +58,157 @@ header .navbar {
 }
 
 .navbar {
+  display: flex;
+  min-height: 90px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.lgxVortex {
+  width: 25%;
+}
+.lgxVortex img{
+  float: left;
+  height: 66px;
+}
+
+.menu-container{
+  display: none;
+  align-items: center;
+  justify-content: end;
+  width: 75%;
+}
+
+#menu-plegable{
+  display: block;
+  margin: auto 0;
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.0);
+}
+
+#menu-plegable:hover{
+  border-radius: 5px;
+  border: 2px solid rgba(255, 0, 229, 0.62);
+}
+
+#menu-plegable div{
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px)
+
+}
+
+.open .lista-Botones2{
+  display: flex;
+}
+
+
+.lista-Botones2{
+  top: 70px;
+  height: 150px;
+  width: 100%;
+  font-size: .8em;
   flex-direction: column;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.navbar li a {
-  color: #fff;
+.navbar-botones{
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.navbar li a {
+.lista-Botones{
+  display: inline-flex;
+  padding-left: 0;
+  text-align: center;
+  list-style: none;
+}
+.nav-link{
+  display: flex;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
   border-radius: 30.2659px;
+  padding: .5em 1em;
+  user-select: none;
 }
 
-.navbar li a:hover {
+.nav-link:hover{
   background: rgba(255, 0, 229, 0.62);
-  color: #fff;
-}
-
-header .navbar {
-  background: rgb(27,27,27);
-}
-
-.navbar {
-  flex-direction: row;
-  padding: 0px 20px;
-}
-      
-.navbar-nav {
-  align-items: normal !important;
-}
-
-.nav-link:focus {
-  color: #fff !important;
 }
 
 .active {
   border-radius: 30.2659px;
-  padding: .5rem 1rem;
+  padding: .5em 1em;
   background: rgba(255, 0, 229, 0.62);    
   color: #fff;
 }
-
+@media (max-width: 960px) {
+  .lgxVortex img{
+    height: 60px;
+  }
+  .lista-Botones{
+    font-size: .8em;
+  }
+}
+@media (max-width: 810px) {
+  .lgxVortex img{
+    height: 55px;
+  }
+  .lista-Botones{
+    font-size: .6em;
+  }
+}
+@media (max-width: 650px) {
+  .navbar{
+    min-height: 70px;
+  }
+  .lgxVortex img{
+    height: 45px;
+  }
+  .lista-Botones{
+    font-size: .5em;
+  }
+  .lista-Botones2{
+    display: none;
+  }
+}
+@media (max-width: 540px) {
+  .lgxVortex img{
+    height: 45px;
+  }
+  .navbar-botones{
+    display: none;
+  }
+  .menu-container{
+    display: flex;
+  }
+}
 
 /*Contenido principal*/
 
@@ -655,6 +766,7 @@ footer .redes h3:hover {
 @media (max-width: 768px) {
   .bg-universe {
     height: 100vh;
+
   }
 
   .front-text .row {
