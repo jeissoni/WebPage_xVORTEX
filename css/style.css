@@ -33,9 +33,11 @@ body {
 figure {
     margin: 0;
 }
+
 h1, h2, h3, h4, p {
     margin: 0;
     font-weight: normal;
+    
 }
 
 /* xVORTEX Styles */
@@ -104,12 +106,12 @@ header .navbar {
 
 h1 {
   color: #fff;
-  font-size: 35px;
+  font-size: 2em;
 }
 
 h2 {
   color: #fff;
-  font-size: 25px;
+  font-size: 1.6em;
 }
 
 h5 {
@@ -118,8 +120,9 @@ h5 {
 
 p {
   color: #D0D0D0;
-  font-family: arial;
-  font-size: 18px;    
+  font-size: 1em;
+  font-family: PressStart2P-Regular;
+
 }
 
 h2 span {
@@ -415,44 +418,91 @@ footer .redes h3:hover {
   z-index: 90;
 }
 
-#stacking {
-  padding: 50px 50px;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-  margin-top: -150px;
+.aboutus-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: -100px;
   position: relative;
-  z-index: 90;
+  z-index: 100;
 }
 
-#stacking h1 {
-  margin-bottom: 30px;
+.aboutus-row {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
 }
 
-#aboutus {
-  padding: 150px 50px;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-  margin-top: -150px;
+.abotus-texto {
+  width: 280px;
+  min-width: 280px;
 }
 
-#aboutus h1 {
-  margin-bottom: 30px;
+.abotus-texto h2{
+  text-align: center;
 }
 
-.card-v {
+.abotus-texto p{
+  text-align: justify;
+  height: 100%;
+  padding-top: 10px;
+  line-height: 1.5rem;
+  width: 100%;
+}
+
+#letra-normal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+}
+
+.aboutus-imagen {
+  display: flex;
+  align-items: center;
+  /* animation: flotar 6s infinite; */
+}
+
+.aboutus-imagen img{
+  width: 300px;
+  height: 300px;
+  animation: rotar 100s infinite linear;
+}
+
+.aboutus-row-team {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.aboutus-card-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.aboutus-card {
+  width: 150px;
   background: #242424;
   border-radius: 18.4669px;
   padding: 20px;
   border: solid 2px #242424 ;
   transition: .2s all;
+  height: 100%;
 }
 
-.card-v:hover {
+.aboutus-card:hover {
   cursor: pointer;
   border-color: rgba(255, 0, 229, 0.62);
+  box-shadow: 10px 10px 5px rgba(255, 0, 229, 0.62);
   transform: scale(1.05)
 }
 
+.aboutus-card img {
+  width: 100%;
+}
 
 .partner img {
   width: 80%;
@@ -468,9 +518,47 @@ footer .redes h3:hover {
   transform: scale(1.05)
 }
 
-.team img {
-  width: 100%;
-  padding-top: 20px;
+@media (max-width: 1000px) {
+  
+  .titulo-theteam h1{
+    font-size: 1.6em;
+  }
+  .partners h1{
+    font-size: 1.3em;
+  }
+  .aboutus-card-container {
+    flex-wrap: wrap;
+  }
+  .abotus-texto p {
+    font-size: .8em;
+  }
+  .aboutus-imagen img{
+    width: 200px;
+    height: 200px;  
+  }
+  .aboutus-row {
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width: 699px) {
+  
+  .abotus-texto h2 {
+    font-size: 1.3em;
+  }
+
+  .abotus-texto p {
+    font-size: .7em;
+  }
+}
+
+
+@keyframes rotar {
+  100%{
+    transform: rotateZ(1turn);
+  }
+
 }
 
 
@@ -515,7 +603,7 @@ footer .redes h3:hover {
   font-size: 20px;
 }
 
-.card{
+.card {
   display: flex;
   background-color :rgba(0, 0, 0, 0.2);
   flex-direction: column;
@@ -583,6 +671,9 @@ footer .redes h3:hover {
   .partners h1{
     font-size: 20px;
   }
+  .abotus-texto {
+    width: 200px;
+  }
 
 }
 
@@ -641,7 +732,7 @@ footer .redes h3:hover {
 }
 
 .card-text {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 @media (max-width: 1500px) {
@@ -658,6 +749,15 @@ footer .redes h3:hover {
   .blog-row {
     flex-wrap: wrap;
     width: 800px;
+  }
+  .blog-card h3 {
+    font-size: .8em;
+  }
+  .card-text {
+    font-size: .8em;
+  }
+  .partners h1{
+    font-size: 1.3em;
   }
 }
 
