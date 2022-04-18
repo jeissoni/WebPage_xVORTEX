@@ -18,14 +18,6 @@
       <a class="lgxVortex" id="aHome" href="index.html">
         <img src="../img/1x/logo.png">
       </a>
-      
-        <div class="menu-container">
-          <div id="menu-plegable" onclick="toggleMobileMenu()">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
-        </div>
 
 
       <div class="navbar-botones">
@@ -52,29 +44,34 @@
         </ul>
       </div>
 
-      <div id="botones-plegables">
-        <ul class="lista-Botones2" id="lista-Botones2">
+      <div class="menu-container" id="menu-container">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
 
-          <li class="nav-link active" id="nvHome">
-            <a>HOME</a>
-          </li>
+          <ul class="lista-Botones2">
 
-          <li class="nav-link" id="nvAbautUs">
-            <a>ABOUT US.</a>
-          </li>
-
-          <li class="nav-link" id="nvPortfolio">
-            <a>PORTFOLIO.</a>
-          </li>
-
-          <li class="nav-link" id="nvBlog">
-            <a>BLOG.</a>
-          </li>
-          <li class="nav-link" id="nvContac">
-            <a>CONTACT.</a>
-          </li>
-        </ul>
+            <li class="nav-link active" onclick="fnHome()">
+              <a>HOME</a>
+            </li>
+  
+            <li class="nav-link" onclick="fnAbautUs()">
+              <a>ABOUT US.</a>
+            </li>
+  
+            <li class="nav-link" onclick="fnPortfolio()">
+              <a>PORTFOLIO.</a>
+            </li>
+  
+            <li class="nav-link" onclick="fnBlog()">
+              <a>BLOG.</a>
+            </li>
+            <li class="nav-link" onclick="fnContact()">
+              <a>CONTACT.</a>
+            </li>
+          </ul>
       </div>
+
   </nav>
 
 
@@ -83,8 +80,7 @@
   <section class="banner" id="dvContent">
     <div class="bg-universe">
       <div class="front-text">
-        <div class="row">
-          <div class="col-4">
+          <div class="row">
             <div class="welcome">
               <h1 class="title">WE BUIDL AND HODL, SO YOU CAN RELAX</h1>
               <div class="descripcion">
@@ -98,16 +94,14 @@
               </div>
 
               <a class="boton-sfy" id="homeAbaut">Get Started</a>
-            </div>
           </div>
-          <div class="col-4 medio-token">
+          <div class="medio-token">
             <div class="token">
               <div class="levitar">
               </div>
               <div class="logo-lev"></div>
             </div>
           </div>
-          <div class="col-4"></div>
         </div>
       </div>
       <div id="mundo" class="mundo">
@@ -125,64 +119,44 @@
 
 
   <footer id="footer">
+
     <div class="container">
 
-      <div class="row">
-        <div class="col-12">
           <div class="logo-footer">
             <a href="#">
               <img src="../img/1x/logo.png">
             </a>
           </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 col-sm col-footer">
+      <div class="redes">
           <a href="https://t.me/xVORTEXPROJECT" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">TELEGRAM</h3>
+            <h3>TELEGRAM</h3>
           </a>
-        </div>
-        <div class="col-12 col-sm col-footer">
           <a href="http://discord.gg/CavJQ4p82z" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">DISCORD</h3>
+            <h3>DISCORD</h3>
           </a>
-        </div>
-        <div class="col-12 col-sm col-footer">
           <a href="https://twitter.com/XvortexP" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">TWITTER</h3>
+            <h3>TWITTER</h3>
           </a>
-        </div>
-        <div class="col-12 col-sm col-footer">
           <a href="https://www.instagram.com/xvortexp/" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">INSTAGRAM</h3>
+            <h3>INSTAGRAM</h3>
           </a>
-        </div>
-        <div class="col-12 col-sm col-footer">
           <a href="https://github.com/x-VORTEX" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">GITHUB</h3>
+            <h3>GITHUB</h3>
           </a>
-        </div>
-        <div class="col-12 col-sm col-footer">
           <a href="https://xvortex.medium.com/" target="_blank">
-            <h3 class="texto-gris texto-redes" style="font-size: 15px;">MEDIUM</h3>
+            <h3>MEDIUM</h3>
           </a>
-        </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="creditos">
-            ©2022 xVORTEX.
-          </div>
-        </div>
+      
+      <div class="creditos">
+        ©2022 xVORTEX.
       </div>
+      
 
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
 
   <script src="js/main.js"></script>
 

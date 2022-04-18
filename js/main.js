@@ -1,8 +1,5 @@
 const dvContent = document.getElementById('dvContent');
 
-   const itemBotones = document.getElementById('botones-plegables')
-   let itemContainer = document.getElementById('lista-Botones2')
-
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
@@ -20,8 +17,9 @@ const aHomeAbaut = document.getElementById('homeAbaut')
     window.addEventListener('scroll', function () {
       let value = window.scrollY;
       mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone.style.bottom = value * 0.15 + 150 + 'px';
+      bg_stone.style.bottom = value * 0.1 + 150 + 'px';
       bg_stone_2.style.left = value * 0.25 + 'px';
+      console.log(bg_stone.style.bottom)
     });
 // *********************************************************
 
@@ -111,10 +109,3 @@ itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
 aHomeAbaut.onclick = fnAbautUs
-
-
-
-function toggleMobileMenu() {
-  itemBotones.classList.toggle('open')
-  console.log(itemBotones.classList)
-}
