@@ -1,5 +1,7 @@
 const dvContent = document.getElementById('dvContent');
 
+   const loader = document.getElementById('contenedor_carga')
+
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
@@ -19,9 +21,12 @@ const aHomeAbaut = document.getElementById('homeAbaut')
       mundo.style.top = value * 0.25 + 130 + 'px';
       bg_stone.style.bottom = value * 0.1 + 150 + 'px';
       bg_stone_2.style.left = value * 0.25 + 'px';
-      console.log(bg_stone.style.bottom)
     });
 // *********************************************************
+
+window.addEventListener('load', function(){
+  document.getElementById('contenedor_carga').classList.toggle('contenedor_carga2')
+})
 
 
 async function fetchHtmlAsText(url) {
@@ -39,6 +44,7 @@ function inactiveClass(idItem) {
       break;
 
     case itemAbautUs:
+      loader.className = 'contenedor_carga2'
       itemHome.className = itemHome.className.replace("active", "")
       itemPortfolio.className = itemPortfolio.className.replace("active", "")
       itemBlog.className = itemBlog.className.replace("active", "")
@@ -65,6 +71,10 @@ async function fnHome() {
 }
 
 async function fnAbautUs() {
+  
+  let hola = document.getElementById('contenedor_carga')
+  hola.classList.className = 'contenedor_carga2'
+
   const url = 'html/aboutus.html';
   dvContent.className = "container"
   dvContent.innerHTML = await fetchHtmlAsText(url)
@@ -109,3 +119,5 @@ itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
 aHomeAbaut.onclick = fnAbautUs
+
+
