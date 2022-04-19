@@ -1,6 +1,6 @@
 const dvContent = document.getElementById('dvContent');
 
-   const loader = document.getElementById('contenedor_carga')
+const cargar = document.getElementById('contenedor_carga')
 
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
@@ -8,7 +8,6 @@ const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut')
-
 
 
 // *********    Efecto munfdo  ******************************
@@ -19,20 +18,15 @@ const aHomeAbaut = document.getElementById('homeAbaut')
     window.addEventListener('scroll', function () {
       let value = window.scrollY;
       mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone.style.bottom = value * 0.1 + 150 + 'px';
+      bg_stone.style.bottom = value * 0.15 + 150 + 'px';
       bg_stone_2.style.left = value * 0.25 + 'px';
     });
 // *********************************************************
 
+
 window.addEventListener('load', function(){
   document.getElementById('contenedor_carga').classList.toggle('contenedor_carga2')
 })
-
-
-async function fetchHtmlAsText(url) {
-  const response = await fetch(url);
-  return await response.text();
-}
 
 function inactiveClass(idItem) {
 
@@ -44,7 +38,6 @@ function inactiveClass(idItem) {
       break;
 
     case itemAbautUs:
-      loader.className = 'contenedor_carga2'
       itemHome.className = itemHome.className.replace("active", "")
       itemPortfolio.className = itemPortfolio.className.replace("active", "")
       itemBlog.className = itemBlog.className.replace("active", "")
@@ -66,40 +59,95 @@ function inactiveClass(idItem) {
 }
 
 
+
 async function fnHome() {
   window.location.href = 'index.html';
 }
 
-async function fnAbautUs() {
-  
-  let hola = document.getElementById('contenedor_carga')
-  hola.classList.className = 'contenedor_carga2'
+function fnAbautUs() {
 
-  const url = 'html/aboutus.html';
+  
+
+  cargar.classList.remove('contenedor_carga2')
+
+  const url = 'html/aboutus.html';  
+  dvContent.innerHTML = "" 
+
+  fetch(url)
+  .then(response=>
+      response.text() 
+    
+  )
+  .then(text=> {
+    
+    dvContent.innerHTML = text    
+  })
+
+
   dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url)
 
   inactiveClass(itemAbautUs)
+
   itemAbautUs.className = itemAbautUs.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
+
 }
 
-async function fnPortfolio() {
-  const url = 'html/portfolio.html';
-  dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url);
 
+
+
+function fnPortfolio() {
+
+  cargar.classList.remove('contenedor_carga2')
+
+  const url = 'html/portfolio.html'
+  dvContent.innerHTML = "" 
+
+  fetch(url)
+  .then(response=> 
+    response.text()
+  )
+  .then(text=> {
+     dvContent.innerHTML = text 
+  });
+
+  dvContent.className = "container"
   inactiveClass(itemPortfolio)
   itemPortfolio.className = itemPortfolio.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
 }
 
 
-async function fnBlog() {
-  const url = 'html/blog.html';
-  dvContent.className = "container"
-  dvContent.innerHTML = await fetchHtmlAsText(url);
+function fnBlog() {
 
+  cargar.classList.remove('contenedor_carga2')
+
+  const url = 'html/blog.html';
+  dvContent.innerHTML = "" 
+
+
+  fetch(url)
+  .then(response=> 
+    response.text()
+  )
+  .then(text=> {
+  
+    dvContent.innerHTML = text
+  });
+
+  dvContent.className = "container"
   inactiveClass(itemBlog)
   itemBlog.className = itemBlog.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
 }
 
 async function fnContact(){  
