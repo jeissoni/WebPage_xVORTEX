@@ -33,9 +33,11 @@ body {
 figure {
     margin: 0;
 }
+
 h1, h2, h3, h4, p {
     margin: 0;
     font-weight: normal;
+    
 }
 
 /* xVORTEX Styles */
@@ -192,6 +194,19 @@ header .navbar {
   .lista-Botones{
     font-size: .8em;
   }
+
+
+/*Contenido principal*/
+
+
+h1 {
+  color: #fff;
+  font-size: 2em;
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.6em;
 }
 @media (max-width: 810px) {
   .lgxVortex img{
@@ -209,6 +224,11 @@ header .navbar {
   .lista-Botones{
     font-size: .5em;
   }
+p {
+  color: #D0D0D0;
+  font-size: 1em;
+  font-family: PressStart2P-Regular;
+
 }
 @media (max-width: 540px) {
   .lgxVortex img{
@@ -576,59 +596,151 @@ header .navbar {
   z-index: 90;
 }
 
-#stacking {
-  padding: 50px 50px;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-  margin-top: -150px;
+.aboutus-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: -100px;
   position: relative;
-  z-index: 90;
+  z-index: 100;
 }
 
-#stacking h1 {
-  margin-bottom: 30px;
+.aboutus-row {
+  justify-content: center;
+  display: flex;
+  gap: 150px;
 }
 
-#aboutus {
-  padding: 150px 50px;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-  margin-top: -150px;
+.abotus-texto {
+  width: 400px;
+  min-width: 350px;
 }
 
-#aboutus h1 {
-  margin-bottom: 30px;
+.abotus-texto h2{
+  text-align: center;
 }
 
-.card-v {
+.abotus-texto p{
+  text-align: justify;
+  height: 100%;
+  padding-top: 30px;
+  line-height: 1.5rem;
+  width: 100%;
+}
+
+#letra-normal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+}
+
+.aboutus-imagen {
+  display: flex;
+  align-items: center;
+  /* animation: flotar 6s infinite; */
+}
+
+.aboutus-imagen img{
+  width: 300px;
+  height: 300px;
+  animation: rotar 100s infinite linear;
+}
+
+.aboutus-row-team {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.aboutus-card-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.aboutus-card {
+  width: 200px;
   background: #242424;
   border-radius: 18.4669px;
   padding: 20px;
   border: solid 2px #242424 ;
   transition: .2s all;
+  height: 100%;
 }
 
-.card-v:hover {
+.aboutus-card:hover {
   cursor: pointer;
   border-color: rgba(255, 0, 229, 0.62);
+  box-shadow: 10px 10px 5px rgba(255, 0, 229, 0.62);
   transform: scale(1.05)
 }
 
+.aboutus-card img {
+  width: 100%;
+}
 
 .partner img {
   width: 80%;
   transition: .2s all;
   height: 60px;
+  border-radius: 10px;
 }
 
 .partner img:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  border: 2px solid rgba(255, 0, 229, 0.62);
+  box-shadow: 6px 6px 3px rgba(255, 0, 229, 0.62);
+  transform: scale(1.05)
 }
 
-.team img {
-  width: 100%;
-  padding-top: 20px;
+@media (max-width: 1000px) {
+  
+  .titulo-theteam h1{
+    font-size: 1.6em;
+  }
+  .partners h1{
+    font-size: 1.3em;
+  }
+  .aboutus-card-container {
+    flex-wrap: wrap;
+  }
+  .abotus-texto p {
+    font-size: .8em;
+  }
+  .aboutus-imagen img{
+    width: 200px;
+    height: 200px;  
+  }
+  .aboutus-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 699px) {
+  
+
+  .aboutus-container{
+    gap: 100px;
+  }
+  .abotus-texto h2 {
+    font-size: 1.3em;
+  }
+  .abotus-texto p {
+    font-size: .7em;
+  }
+
+}
+
+@keyframes rotar {
+  100%{
+    transform: rotateZ(1turn);
+  }
+
 }
 
 
@@ -666,13 +778,14 @@ header .navbar {
   justify-content: center;
   flex-wrap: wrap;
   gap: 200px;
+  
 }
 
 .texto-row {
   font-size: 20px;
 }
 
-.card{
+.card {
   display: flex;
   background-color :rgba(0, 0, 0, 0.2);
   flex-direction: column;
@@ -680,11 +793,13 @@ header .navbar {
   width: 400px;
   height: 200px;
   border-radius: 20px;
+  transition: .2s all;
 }
 
 .card:hover{
   border: 2px solid rgba(255, 0, 229, 0.62);
   box-shadow: 10px 10px 5px rgba(255, 0, 229, 0.62);
+  transform: scale(1.05)
 }
 
 .card-body {
@@ -738,6 +853,9 @@ header .navbar {
   .partners h1{
     font-size: 20px;
   }
+  .abotus-texto {
+    width: 200px;
+  }
 
 }
 
@@ -746,57 +864,92 @@ header .navbar {
 .blog-container {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .blog-row {
   display: flex;
+  justify-content: center;
   padding-top:50px;
+  gap: 30px;
+  width: 1400px;
+  
 }
-
 
 .blog-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #242424;
   border-radius: 18.4669px;
   border: solid 2px #242424 ;
   transition: .2s all;
-  width: 300px;
   padding: 20px;
+  width: auto;
+  min-width: 260px;
+  max-width: 370px;
 }
+
 
 .blog-card:hover {
   cursor: pointer;
   border-color: rgba(255, 0, 229, 0.62);
-  transform: scale(1.05)
+  transform: scale(1.05);
+  box-shadow: 10px 10px 5px rgba(255, 0, 229, 0.62);
+}
+
+.cover-news {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .cover-news  img{
   height: 300px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 18.4669px;
 }
 
 .card-text {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
-
-/* .cover-news {
-  height: 300px;
-  object-fit: cover;
-  overflow:hidden;
-  border-radius: 20px;
-  margin-bottom: 20px;
+@media (max-width: 1500px) {
+  .blog-row {
+    flex-wrap: wrap;
+    width: 1200px;
+  }
+  .blog-card {
+    width: 300px;
+  }
 }
 
-.cover-news img {
-  object-fit: cover;
-  width: 100%;
-  height:300px;
-} */
+@media (max-width: 1200px) {
+  .blog-row {
+    flex-wrap: wrap;
+    width: 800px;
+  }
+  .blog-card h3 {
+    font-size: .8em;
+  }
+  .card-text {
+    font-size: .8em;
+  }
+  .partners h1{
+    font-size: 1.3em;
+  }
+}
 
+@media (max-width: 800px) {
+  .blog-row {
+    flex-wrap: wrap;
+    width: 600px;
+  }
+}
 
 /**/
   /* -------------------------------- 
