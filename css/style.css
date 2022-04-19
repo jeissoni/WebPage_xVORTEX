@@ -34,11 +34,22 @@ figure {
     margin: 0;
 }
 
-h1, h2, h3, h4, p {
+h1, h2, p {
     margin: 0;
     font-weight: normal;
+    color: #D0D0D0;
     
 }
+
+h1, h2, h3, h4, h5{
+  color: #ffffff;
+}
+
+span{
+  color: #00C4FF;
+}
+
+
 
 /* xVORTEX Styles */
 
@@ -194,19 +205,6 @@ header .navbar {
   .lista-Botones{
     font-size: .8em;
   }
-
-
-/*Contenido principal*/
-
-
-h1 {
-  color: #fff;
-  font-size: 2em;
-}
-
-h2 {
-  color: #fff;
-  font-size: 1.6em;
 }
 @media (max-width: 810px) {
   .lgxVortex img{
@@ -224,11 +222,6 @@ h2 {
   .lista-Botones{
     font-size: .5em;
   }
-p {
-  color: #D0D0D0;
-  font-size: 1em;
-  font-family: PressStart2P-Regular;
-
 }
 @media (max-width: 540px) {
   .lgxVortex img{
@@ -250,6 +243,10 @@ p {
   height: 853px;
   overflow:hidden;
   position: relative;
+}
+
+.banner-section h1{
+  font-size: 2em;
 }
 
 .banner:before {
@@ -292,7 +289,7 @@ p {
   z-index: 99;
 }
 
-.front-text .row {
+.front-text .column {
   width: 80%;
   margin: 0 auto;
   display: grid;
@@ -331,14 +328,15 @@ p {
   border-radius: 28.5px;
   color: #fff;
   white-space: nowrap;
-  font-size: 1.4em;
+  font-size: 1em;
   cursor:pointer;
+  background: #1b1b1b7e;
 }
 
 .boton-sfy:hover {
+  
   box-shadow: 0px 0px 30px rgba(255, 0, 229, 1);
   border: 2px solid rgb(255, 255, 255);
-  color: rgba(255, 0, 229, 0.62);
 }
 
 .token {
@@ -381,6 +379,13 @@ p {
   animation-duration: 4s;
   transition: .2s all;
 }
+
+@keyframes levitar {
+  0%   {top: -150px;}
+  50%  {top: -120px;}
+  100% {top: -150px;}
+}
+
 
 .logo-lev:hover {
   transform: rotate(360deg);
@@ -495,14 +500,14 @@ p {
 }
 
 @media (max-width: 770px) {
-  .front-text .row{
+  .front-text .column{
     width: 95%;
   }
 }
 
 @media (max-width: 540px) {
   
-.front-text .row {
+.front-text .column {
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -528,8 +533,8 @@ p {
 }
 
 }
-
 /*Footer*/
+
 
 .logo-footer{
   margin-top: 100px;
@@ -546,7 +551,7 @@ p {
   padding: 20px 65px;
 }
 
-.redes a:hover{
+.redes a:hover > h3{
   color: rgba(255, 0, 229, 0.62);
   text-shadow: 10px 10px 10px rgba(255, 0, 229, 0.62);
 }
@@ -555,7 +560,6 @@ p {
   color: #575757;
   padding: 50px;
 }
-
 
 
 /*About us*/
@@ -675,7 +679,7 @@ p {
   cursor: pointer;
   border-color: rgba(255, 0, 229, 0.62);
   box-shadow: 10px 10px 5px rgba(255, 0, 229, 0.62);
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 .aboutus-card img {
@@ -693,7 +697,7 @@ p {
   cursor: pointer;
   border: 2px solid rgba(255, 0, 229, 0.62);
   box-shadow: 6px 6px 3px rgba(255, 0, 229, 0.62);
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 @media (max-width: 1000px) {
@@ -949,18 +953,4 @@ p {
     flex-wrap: wrap;
     width: 600px;
   }
-}
-
-/**/
-  /* -------------------------------- 
-  
-  Animaciones
-  
-  -------------------------------- */
-  
-/*Animacion logo levitar*/ 
-@keyframes levitar {
-  0%   {top: -150px;}
-  50%  {top: -120px;}
-  100% {top: -150px;}
 }
