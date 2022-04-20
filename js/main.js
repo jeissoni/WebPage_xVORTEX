@@ -93,7 +93,7 @@ function fnAbautUs() {
 
   inactiveClass(itemAbautUs)
 
-  itemAbautUs.className = itemAbautUs.className + " active"
+  itemAbautUs.classList.toggle('active')
 
   setTimeout(function(){
     cargar.classList.toggle('contenedor_carga2')
@@ -121,7 +121,7 @@ function fnPortfolio() {
 
   dvContent.className = "container"
   inactiveClass(itemPortfolio)
-  itemPortfolio.className = itemPortfolio.className + " active"
+  itemPortfolio.classList.toggle('active')
 
   setTimeout(function(){
     cargar.classList.toggle('contenedor_carga2')
@@ -148,7 +148,7 @@ function fnBlog() {
 
   dvContent.className = "container"
   inactiveClass(itemBlog)
-  itemBlog.className = itemBlog.className + " active"
+  itemBlog.classList.toggle('active')
 
   setTimeout(function(){
     cargar.classList.toggle('contenedor_carga2')
