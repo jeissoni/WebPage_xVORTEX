@@ -28,7 +28,6 @@ const aHomeAbaut = document.getElementById('homeAbaut')
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
-  console.log(botones.classList)
 })
 
 window.addEventListener('load', function(){
