@@ -1,5 +1,7 @@
 const dvContent = document.getElementById('dvContent');
 
+const cargar = document.getElementById('contenedor_carga')
+
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
@@ -22,7 +24,9 @@ const aHomeAbaut = document.getElementById('homeAbaut')
 // *********************************************************
 
 
-
+window.addEventListener('load', function(){
+  document.getElementById('contenedor_carga').classList.toggle('contenedor_carga2')
+})
 
 function inactiveClass(idItem) {
 
@@ -61,6 +65,11 @@ async function fnHome() {
 }
 
 function fnAbautUs() {
+
+  
+
+  cargar.classList.remove('contenedor_carga2')
+
   const url = 'html/aboutus.html';  
   dvContent.innerHTML = "" 
 
@@ -77,10 +86,22 @@ function fnAbautUs() {
   dvContent.className = "container"
 
   inactiveClass(itemAbautUs)
+
   itemAbautUs.className = itemAbautUs.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
+
 }
 
+
+
+
 function fnPortfolio() {
+
+  cargar.classList.remove('contenedor_carga2')
+
   const url = 'html/portfolio.html'
   dvContent.innerHTML = "" 
 
@@ -95,10 +116,17 @@ function fnPortfolio() {
   dvContent.className = "container"
   inactiveClass(itemPortfolio)
   itemPortfolio.className = itemPortfolio.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
 }
 
 
 function fnBlog() {
+
+  cargar.classList.remove('contenedor_carga2')
+
   const url = 'html/blog.html';
   dvContent.innerHTML = "" 
 
@@ -115,6 +143,10 @@ function fnBlog() {
   dvContent.className = "container"
   inactiveClass(itemBlog)
   itemBlog.className = itemBlog.className + " active"
+
+  setTimeout(function(){
+    cargar.classList.toggle('contenedor_carga2')
+  }, 500)
 }
 
 async function fnContact(){  
@@ -134,3 +166,5 @@ itemContac.onclick = fnContact;
 itemHome.onclick = fnHome;
 itemPortfolio.onclick = fnPortfolio;
 aHomeAbaut.onclick = fnAbautUs
+
+
