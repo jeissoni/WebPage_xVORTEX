@@ -142,19 +142,6 @@ header .navbar {
   position: relative;
 }
 
-.lista-Botones2{
-  display: none;
-  position: absolute;
-  align-self: center;
-  padding: 10px;
-  right: 0px;
-  z-index: 120;
-  background-color: #1B1B1B;
-}
-.menu-container:hover > .lista-Botones2{
-  display: block;
-}
-
 #menu-container div{
   width: 35px;
   height: 3px;
@@ -198,6 +185,13 @@ header .navbar {
   background: rgba(255, 0, 229, 0.62);    
   color: #fff;
 }
+
+.menu-container .active {
+  border-radius: 30.2659px;
+  padding: .5em 1em;
+  background: rgba(255, 0, 229, 0.62);    
+  color: #fff;
+}
 @media (max-width: 960px) {
   .lgxVortex img{
     height: 60px;
@@ -228,7 +222,21 @@ header .navbar {
     height: 45px;
   }
   .navbar-botones{
+    height: 140px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     display: none;
+    
+  }
+  .lista-Botones{
+    width: 70%;
+    display: block;
+    font-size: .8em;
+  }
+  .visible{
+    display: flex;
   }
   .menu-container{
     display: block;

@@ -1,6 +1,8 @@
 const dvContent = document.getElementById('dvContent');
 
 const cargar = document.getElementById('contenedor_carga')
+const menu = document.getElementById('menu-container')
+const botones = document.getElementById('navbar-botones')
 
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
@@ -8,6 +10,7 @@ const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut')
+
 
 
 // *********    Efecto munfdo  ******************************
@@ -23,6 +26,10 @@ const aHomeAbaut = document.getElementById('homeAbaut')
     });
 // *********************************************************
 
+menu.addEventListener('click', () => {
+  botones.classList.toggle('visible')
+  console.log(botones.classList)
+})
 
 window.addEventListener('load', function(){
   document.getElementById('contenedor_carga').classList.toggle('contenedor_carga2')
@@ -158,6 +165,8 @@ async function fnContact(){
 async function fnCertik() {
   window.open('https://www.certik.com/projects/xvortex', '_blank')
 }
+
+
 
 
 itemAbautUs.onclick = fnAbautUs;
