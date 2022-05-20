@@ -20,6 +20,8 @@
   font-family: PressStart2P-Regular;
   src: url(./PressStart2P-Regular.ttf);
 }
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap');
+
 body {
   margin: 0;
   font-family: PressStart2P-Regular;
@@ -872,6 +874,120 @@ gap: 20px;
 
 /*blog*/
 
+/* despues */
+
+.card__father{
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card__father:hover .blog__card{
+  transform: rotateY(180deg);
+}
+
+
+.blog__card{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 600ms;
+}
+
+.card__front{
+  background-size: cover;
+  background-position: center;
+}
+
+.card__front h1{
+  color: #ffffff;
+}
+
+
+.card__front,
+.card__back{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+}
+
+.card__back{
+  transform: rotateY(180deg);
+  background: #242424;
+}
+
+.transparencia{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #00000074;
+  border-radius: 20px;
+}
+
+
+
+.transparencia img{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 30px;
+  opacity: 0;
+  animation: parpadear 10s linear infinite;
+}
+.cursor2 img{
+  animation-delay: 2s;
+}
+
+@keyframes parpadear {
+  0%{opacity: 0;}
+  10%{opacity: 1;}
+  20%{opacity: 0;}
+}
+
+
+.body__card_back,
+.body__card_front{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateZ(60px);
+  border-radius: 20px;
+}
+
+.body__card_front{
+  width: 80%;
+  height: 80%;
+  padding: 15px;
+  gap: 20px;
+}
+
+.body__card_back{
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  gap: 20px;
+}
+
+.body__card_back p{
+  width: 85%;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Radio Canada', sans-serif;
+  font-weight: bold;
+}
+
+/* antes */
+
 .blog-container {
 display: flex;
 flex-direction: column;
@@ -883,6 +999,7 @@ gap: 20px;
 
 .blog-row {
 display: flex;
+flex-wrap: wrap;
 justify-content: center;
 padding-top:50px;
 gap: 30px;
@@ -931,7 +1048,6 @@ margin: 20px 0;
 
 @media (max-width: 1500px) {
 .blog-row {
-  flex-wrap: wrap;
   width: 1200px;
 }
 .blog-card {
