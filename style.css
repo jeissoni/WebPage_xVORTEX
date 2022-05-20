@@ -2,23 +2,23 @@
 
 @font-face {
   font-family: D_DIN;
-  src: url(fonts/D_DIN.otf);
+  src: url(./D_DIN.otf);
 }
 @font-face {
   font-family: D_DIN_Italic;
-  src: url(fonts/D_DIN_Italic.otf);
+  src: url(./D_DIN_Italic.otf);
 }
 @font-face {
   font-family: HelveticaLTStd_REGULAR;
-  src: url(fonts/HelveticaLTStd_REGULAR.otf);
+  src: url(./HelveticaLTStd_REGULAR.otf);
 }
 @font-face {
   font-family: PressStart2P-Regular;
-  src: url(fonts/PressStart2P-Regular.ttf);
+  src: url(./PressStart2P-Regular.ttf);
 }
 @font-face {
   font-family: PressStart2P-Regular;
-  src: url(fonts/PressStart2P-Regular.ttf);
+  src: url(./PressStart2P-Regular.ttf);
 }
 body {
   margin: 0;
@@ -283,7 +283,7 @@ z-index: 90;
 }
 
 .bg-universe {
-background: url(../img/1x/bg-universe.png);
+background: url(./bg-universe.png);
 background-size: cover;
 width: 100%;
 height: 853px;
@@ -360,7 +360,7 @@ width: 100%;
 }
 
 .levitar {
-background: url(../img/1x/machine.png);
+background: url(./machine.png);
 background-position: center bottom;
 background-repeat: no-repeat;
 width: 100%;
@@ -374,7 +374,7 @@ bottom: 150px;
 display: flex;
 justify-content:center;
 align-items: center;
-background: url(../img/1x/logo-icon.png);
+background: url(./logo-icon.png);
 background-position: center bottom;
 background-repeat: no-repeat;
 width: 100%;
@@ -413,17 +413,15 @@ bottom: 50px;
 }
 
 .planeta {
-background: url(../img/1x/planeta.png);
-background-position: center bottom;
+background: url(./planeta.png)  50% 50%;
+background-position: center;
 background-repeat: no-repeat;
 width: 654px;
 height:654px;
 background-blend-mode: lighten;
 position: absolute;
 z-index: 15;
-animation: rotarPlaneta;
-animation-iteration-count: infinite;
-animation-duration: 400s;
+animation: rotarPlaneta infinite 300s linear;
 }
 
 @keyframes rotarPlaneta {
@@ -447,7 +445,7 @@ bottom: -40px;
 }
 
 .bg-stone {
-background: url(../img/1x/bg-stone-1.png);
+background: url(./bg-stone-1.png);
 background-size: cover;
 background-position: center bottom;
 width: 101%;
@@ -459,7 +457,7 @@ z-index: 6;
 }
 
 .bg-stone-2 {
-background: url(../img/1x/bg-stone-2.png);
+background: url(./bg-stone-2.png);
 background-size: cover;
 background-position: center bottom;
 width: 101%;
@@ -472,7 +470,7 @@ left:0;
 }
 
 .front-stone {
-background: url(../img/1x/front-stone_1.png);
+background: url(./front-stone_1.png);
 background-size:cover;
 background-position: center bottom;
 width: 101%;

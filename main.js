@@ -67,7 +67,7 @@ function inactiveClass(idItem) {
 
 
 async function fnHome() {
-  window.location.href = 'index.html';
+  window.location.href = './index.html';
 }
 
 function fnAbautUs() {
@@ -76,7 +76,7 @@ function fnAbautUs() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = 'html/aboutus.html';  
+  const url = './aboutus.html';  
   dvContent.innerHTML = "" 
 
   fetch(url)
@@ -108,7 +108,7 @@ function fnPortfolio() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = 'html/portfolio.html'
+  const url = './portfolio.html'
   dvContent.innerHTML = "" 
 
   fetch(url)
@@ -133,7 +133,7 @@ function fnBlog() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = 'html/blog.html';
+  const url = './blog.html';
   dvContent.innerHTML = "" 
 
 
