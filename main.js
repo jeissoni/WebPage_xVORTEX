@@ -9,7 +9,8 @@ const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
-const aHomeAbaut = document.getElementById('homeAbaut')
+const aHomeAbaut = document.getElementById('homeAbaut');
+let rowBlog;
 
 
 
@@ -146,11 +147,15 @@ function fnBlog() {
     dvContent.innerHTML = text
   });
 
+  rowBlog = document.getElementById('blog-row')
+  
+
   dvContent.className = "container"
   inactiveClass(itemBlog)
   itemBlog.classList.toggle('active')
 
   setTimeout(function(){
+    console.log(rowBlog)
     cargar.classList.toggle('contenedor_carga2')
   }, 500)
 }

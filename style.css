@@ -1,5 +1,7 @@
-
-
+@font-face {
+  font-family: PressStart2P-Regular;
+  src: url(./PressStart2P-Regular.ttf);
+}
 @font-face {
   font-family: D_DIN;
   src: url(./D_DIN.otf);
@@ -12,15 +14,18 @@
   font-family: HelveticaLTStd_REGULAR;
   src: url(./HelveticaLTStd_REGULAR.otf);
 }
+
 @font-face {
-  font-family: PressStart2P-Regular;
-  src: url(./PressStart2P-Regular.ttf);
+  font-family: vcr_mono;
+  src: url(./VCR_OSD_MONO.ttf);
 }
+
 @font-face {
-  font-family: PressStart2P-Regular;
-  src: url(./PressStart2P-Regular.ttf);
+  font-family: rixel;
+  src: url(./Rixel.otf);
 }
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 body {
   margin: 0;
@@ -876,7 +881,7 @@ gap: 20px;
 
 /* despues */
 
-.card__father{
+ .card__father{
   width: 400px;
   height: 400px;
   perspective: 1000px;
@@ -925,6 +930,60 @@ gap: 20px;
   background: #242424;
 }
 
+
+
+/**** cursor ***/
+
+.lds-ripple {
+  display: none;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 15px;
+  right: 15px;
+  animation: parpadear 2s linear infinite alternate;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -1s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
 .transparencia{
   width: 100%;
   height: 100%;
@@ -933,25 +992,27 @@ gap: 20px;
   border-radius: 20px;
 }
 
-
-
 .transparencia img{
   position: absolute;
   right: 20px;
   bottom: 20px;
   width: 30px;
   opacity: 0;
-  animation: parpadear 10s linear infinite;
+  animation: parpadear 2s linear infinite alternate;
 }
-.cursor2 img{
-  animation-delay: 2s;
+.cursor2 img,
+.cursor2 .lds-ripple{
+  animation-delay: -2s;
 }
 
 @keyframes parpadear {
-  0%{opacity: 0;}
-  10%{opacity: 1;}
-  20%{opacity: 0;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
 }
+
+/********/
+
+
 
 
 .body__card_back,
@@ -982,30 +1043,83 @@ gap: 20px;
   width: 85%;
   color: #ffffff;
   font-size: 18px;
-  font-family: 'Radio Canada', sans-serif;
   font-weight: bold;
+}
+
+.caveatBrush p{
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+}
+
+.IndieFlower p{
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+}
+
+.macondo p{
+  font-family: 'Macondo', cursive;
+  font-size: 25px;
+}
+
+.orbitron p{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+}
+
+.radioCanada p{
+  font-size: 15px;
+}
+
+#shareTechMono p{
+  font-family: 'HelveticaLTStd_REGULAR';
+  font-size: 25px;
+}
+
+.titilliumWeb p{
+  font-family: 'vcr_mono';
+  font-size: 25px;
+}
+
+@media (max-width: 500px){
+  .card__father{
+    width: 300px;
+    height: 300px;
+  }
+  .card__front h1{
+    font-size: 15px;
+  }
+  .lds-ripple{
+    display: inline-block;
+  }
+  .transparencia img{
+    display: none;
+  }
 }
 
 /* antes */
 
 .blog-container {
-display: flex;
-flex-direction: column;
-align-content: center;
-align-items: center;
-flex-wrap: wrap;
-gap: 20px;
-}
-
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  }
+  
 .blog-row {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-padding-top:50px;
-gap: 30px;
-width: 1400px;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top:50px;
+  gap: 50px;
+  width: 90%;
+  
 }
+
+
+
+/* 
 
 .blog-card {
 display: flex;
@@ -1076,4 +1190,4 @@ margin: 20px 0;
   flex-wrap: wrap;
   width: 600px;
 }
-}
+}  */
