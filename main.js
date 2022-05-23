@@ -22,10 +22,16 @@ let rowBlog;
     window.addEventListener('scroll', function () {
       let value = window.scrollY;
       mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone.style.bottom = value * 0.1 + 150 + 'px';
-      bg_stone_2.style.left = value * 0.25 + 'px';
+      bg_stone_2.style.left = value * 0.29 + 'px';
+      if(value * 0.25 + 105 < 190){
+        bg_stone.style.bottom = value * 0.25 + 105 + 'px';
+      }
     });
 // *********************************************************
+
+document.addEventListener('fullscreenchange', (e) => {
+  console.log(e)
+})
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
