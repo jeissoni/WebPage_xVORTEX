@@ -9,7 +9,8 @@ const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
-const aHomeAbaut = document.getElementById('homeAbaut')
+const aHomeAbaut = document.getElementById('homeAbaut');
+let rowBlog;
 
 
 
@@ -21,10 +22,16 @@ const aHomeAbaut = document.getElementById('homeAbaut')
     window.addEventListener('scroll', function () {
       let value = window.scrollY;
       mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone.style.bottom = value * 0.1 + 150 + 'px';
-      bg_stone_2.style.left = value * 0.25 + 'px';
+      bg_stone_2.style.left = value * 0.29 + 'px';
+      if(value * 0.25 + 105 < 190){
+        bg_stone.style.bottom = value * 0.25 + 105 + 'px';
+      }
     });
 // *********************************************************
+
+document.addEventListener('fullscreenchange', (e) => {
+  console.log(e)
+})
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
@@ -93,7 +100,7 @@ function fnAbautUs() {
 
   inactiveClass(itemAbautUs)
 
-  itemAbautUs.className = itemAbautUs.className + " active"
+  itemAbautUs.classList.toggle('active')
 
   setTimeout(function(){
     cargar.classList.toggle('contenedor_carga2')
@@ -121,7 +128,7 @@ function fnPortfolio() {
 
   dvContent.className = "container"
   inactiveClass(itemPortfolio)
-  itemPortfolio.className = itemPortfolio.className + " active"
+  itemPortfolio.classList.toggle('active')
 
   setTimeout(function(){
     cargar.classList.toggle('contenedor_carga2')
@@ -146,11 +153,15 @@ function fnBlog() {
     dvContent.innerHTML = text
   });
 
+  rowBlog = document.getElementById('blog-row')
+  
+
   dvContent.className = "container"
   inactiveClass(itemBlog)
-  itemBlog.className = itemBlog.className + " active"
+  itemBlog.classList.toggle('active')
 
   setTimeout(function(){
+    console.log(rowBlog)
     cargar.classList.toggle('contenedor_carga2')
   }, 500)
 }
