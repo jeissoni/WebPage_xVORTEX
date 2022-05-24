@@ -734,16 +734,78 @@ header .navbar {
   gap: 150px;
 }
 
-.abotus-texto {
-  width: 400px;
-  min-width: 350px;
+#letra-normal {
+  font-size: 18px;
+
 }
 
-.abotus-texto h2 {
+.aboutus-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
+
+.aboutus-imagen,
+.aboutus-imagen3 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* animation: flotar 6s infinite; */
+}
+
+.aboutus-imagen img,
+.aboutus-imagen3 img {
+  width: 300px;
+  height: 300px;
+  animation: rotar 100s infinite linear;
+}
+
+.aboutus-imagen::before,
+.aboutus-imagen3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(20% / 2);
+  width: 80%;
+  height: 20px;
+  filter: blur(10px);
+  border-radius: 50%;
+  transform: translateY(30px) scale(0.9);
+}
+
+.aboutus-imagen:nth-child(1)::before {
+  background: linear-gradient(180deg, #6ff403, #4aa400);
+}
+
+.aboutus-imagen:nth-child(2)::before {
+  background: linear-gradient(180deg, #f49403, #fb0000);
+}
+
+.aboutus-imagen3::before {
+  background: linear-gradient(180deg, #e803f4, #00fbfb);
+}
+
+.abotus-texto1,
+.abotus-texto2,
+.abotus-texto3 {
+  width: 400px;
+  min-width: 350px;
+  position: relative;
+  
+}
+
+.abotus-texto1 h2,
+.abotus-texto2 h2,
+.abotus-texto3 h2   {
   text-align: center;
 }
 
-.abotus-texto p {
+.abotus-texto1 p,
+.abotus-texto2 p,
+.abotus-texto3 p {
   text-align: justify;
   height: 100%;
   padding-top: 30px;
@@ -751,28 +813,221 @@ header .navbar {
   width: 100%;
 }
 
-#letra-normal {
-  font-size: 18px;
-
+.abotus-texto1 p {
+  animation: ocultar 3s linear;
 }
 
-.aboutus-imagen {
-  display: flex;
-  align-items: center;
-  /* animation: flotar 6s infinite; */
+@keyframes ocultar {
+  0%{
+    opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
-.aboutus-imagen img {
-  width: 300px;
-  height: 300px;
-  animation: rotar 100s infinite linear;
+.abotus-texto2 p {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  animation: ocultar2 2s linear;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
 }
+
+@keyframes ocultar2 {
+  0%{
+    opacity: 0;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.abotus-texto3 p {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation: ocultar3 2s linear;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-delay: 6s;
+}
+
+@keyframes ocultar3 {
+  0%{
+    opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.scanner1 {
+  background: #4aa400;
+  width: 110%;
+  height: 5px;
+  top: 500px;
+  left: -5%;
+  border-radius: 2px;
+  position: absolute;
+  box-shadow: 
+  0 0 3px #4aa400,
+  0 0 6px #4aa400,
+  0 0 15px #4aa400,
+  0 0 30px #6ff403,
+  0 0 60px #6ff403,
+  0 0 80px #6ff403,
+  0 0 98px #6ff403,
+  0 0 120px #6ff403;
+  animation-name: flicker, scanner;
+  animation-duration: 3s, 3s;
+  animation-iteration-count: infinite, none;
+  animation-timing-function: linear;
+  animation-delay: alternate, none ;
+  animation-fill-mode: forwards;
+}
+
+/* @keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+  box-shadow: 
+  0 0 3px #4aa400,
+  0 0 6px #4aa400,
+  0 0 15px #4aa400,
+  0 0 30px #6ff403,
+  0 0 60px #6ff403,
+  0 0 80px #6ff403,
+  0 0 98px #6ff403,
+  0 0 120px #6ff403;
+  }
+  20%, 24%, 55% {
+    box-shadow: none;
+  }
+} */
+
+@keyframes scanner {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(400px);
+  }
+}
+
+.scanner2 {
+  position: absolute;
+  background: #f49403;
+  width: 110%;
+  height: 5px;
+  top: 440px;
+  left: -5%;
+  border-radius: 2px;
+  box-shadow: 
+  0 0 3px #f49403,
+  0 0 6px #f49403,
+  0 0 15px #f49403,
+  0 0 30px #fb0000,
+  0 0 60px #fb0000,
+  0 0 80px #fb0000,
+  0 0 98px #fb0000,
+  0 0 120px #fb0000;
+  animation-name: flicker2, scanner2;
+  animation-duration: 3s, 4s;
+  animation-iteration-count: infinite, none;
+  animation-delay: alternate, none ;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+}
+
+/* @keyframes flicker2 {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+  box-shadow: 
+  0 0 3px #f49403,
+  0 0 6px #f49403,
+  0 0 15px #f49403,
+  0 0 30px #fb0000,
+  0 0 60px #fb0000,
+  0 0 80px #fb0000,
+  0 0 98px #fb0000,
+  0 0 120px #fb0000;
+  }
+  20%, 24%, 55% {
+    box-shadow: none;
+  }
+} */
+
+@keyframes scanner2 {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-460px);
+  }
+}
+
+.scanner3 {
+  position: absolute;
+  background: #e803f4;
+  width: 110%;
+  height: 5px;
+  top: 100px;
+  left: -5%;
+  border-radius: 2px;
+  box-shadow: 
+  0 0 3px #e803f4,
+  0 0 6px #e803f4,
+  0 0 15px #e803f4,
+  0 0 30px #00fbfb,
+  0 0 60px #00fbfb,
+  0 0 80px #00fbfb,
+  0 0 98px #00fbfb,
+  0 0 120px #00fbfb;
+  animation-name: flicker3, scanner3;
+  animation-duration: 3s, 3s;
+  animation-iteration-count: infinite, none;
+  animation-delay: alternate, none ;
+  animation-fill-mode: forwards;
+  animation-delay: 6s;
+}
+
+/* @keyframes flicker3 {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+  box-shadow: 
+  0 0 3px #e803f4,
+  0 0 6px #e803f4,
+  0 0 15px #e803f4,
+  0 0 30px #00fbfb,
+  0 0 60px #00fbfb,
+  0 0 80px #00fbfb,
+  0 0 98px #00fbfb,
+  0 0 120px #00fbfb;
+  }
+  20%, 24%, 55% {
+    box-shadow: none;
+  }
+} */
+
+@keyframes scanner3 {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(440px);
+  }
+}
+
 
 .aboutus-row-team {
   width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  margin: 100px 50px 50px 50px;
   gap: 50px;
 }
 
@@ -878,7 +1133,6 @@ header .navbar {
   100% {
     transform: rotateZ(1turn);
   }
-
 }
 
 
