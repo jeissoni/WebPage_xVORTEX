@@ -10,7 +10,9 @@ const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut');
-let rowBlog;
+let slidesArray, next, previous, slides;
+var left = -600
+document.documentElement.style.setProperty('--x', left + 'px')
 
 
 
@@ -29,9 +31,6 @@ let rowBlog;
     });
 // *********************************************************
 
-document.addEventListener('fullscreenchange', (e) => {
-  console.log(e)
-})
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
@@ -109,8 +108,6 @@ function fnAbautUs() {
 }
 
 
-
-
 function fnPortfolio() {
 
   cargar.classList.remove('contenedor_carga2')
@@ -118,13 +115,17 @@ function fnPortfolio() {
   const url = './portfolio.html'
   dvContent.innerHTML = "" 
 
-  fetch(url)
-  .then(response=> 
+  fetch(url).then( response => 
     response.text()
-  )
-  .then(text=> {
+  ).then(text=> {
      dvContent.innerHTML = text 
+     slidesArray = document.querySelectorAll('.slides-content')
+     slides = document.querySelector('.slides')
+     document.querySelector('.previous').onclick = btnPrevious
+     document.querySelector('.next').onclick = btnNext
   });
+
+  
 
   dvContent.className = "container"
   inactiveClass(itemPortfolio)
@@ -152,8 +153,6 @@ function fnBlog() {
   
     dvContent.innerHTML = text
   });
-
-  rowBlog = document.getElementById('blog-row')
   
 
   dvContent.className = "container"
@@ -161,7 +160,6 @@ function fnBlog() {
   itemBlog.classList.toggle('active')
 
   setTimeout(function(){
-    console.log(rowBlog)
     cargar.classList.toggle('contenedor_carga2')
   }, 500)
 }
@@ -175,6 +173,33 @@ async function fnContact(){
 async function fnCertik() {
   window.open('https://www.certik.com/projects/xvortex', '_blank')
 }
+
+
+
+function btnNext(){
+  document.documentElement.style.setProperty('--x', '-1200px')
+  let first = document.querySelectorAll('.slides-content')[0]
+  slides.style.transition = 'all .5s'
+  console.log(first)
+  setTimeout(() => {
+    slides.style.transition = 'none'
+    slides.insertAdjacentElement('beforeend', first)
+    document.documentElement.style.setProperty('--x', '-600px')
+  }, 500)
+}
+
+function btnPrevious() {
+  document.documentElement.style.setProperty('--x', '0px')
+  let last = document.querySelectorAll('.slides-content')[slidesArray.length - 1]
+  slides.style.transition = 'all .5s'
+  console.log(last)
+  setTimeout(() => {
+    slides.style.transition = 'none'
+    slides.insertAdjacentElement('afterbegin', last)
+    document.documentElement.style.setProperty('--x', '-600px')
+  }, 500)
+}
+
 
 
 
