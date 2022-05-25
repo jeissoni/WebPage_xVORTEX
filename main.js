@@ -1,9 +1,7 @@
 const dvContent = document.getElementById('dvContent');
-
 const cargar = document.getElementById('contenedor_carga')
 const menu = document.getElementById('menu-container')
 const botones = document.getElementById('navbar-botones')
-
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
@@ -11,8 +9,8 @@ const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut');
 let slidesArray, next, previous, slides;
-var left = -600
-document.documentElement.style.setProperty('--x', left + 'px')
+document.documentElement.style.setProperty('--x', '-600px')
+document.documentElement.style.setProperty('--y', '0px')
 
 
 
@@ -30,7 +28,6 @@ document.documentElement.style.setProperty('--x', left + 'px')
       }
     });
 // *********************************************************
-
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
@@ -121,6 +118,8 @@ function fnPortfolio() {
      dvContent.innerHTML = text 
      slidesArray = document.querySelectorAll('.slides-content')
      slides = document.querySelector('.slides')
+     let cantidad = slidesArray.length * 600
+     document.documentElement.style.setProperty('--z', cantidad + 'px')
      document.querySelector('.previous').onclick = btnPrevious
      document.querySelector('.next').onclick = btnNext
   });
@@ -178,26 +177,44 @@ async function fnCertik() {
 
 function btnNext(){
   document.documentElement.style.setProperty('--x', '-1200px')
-  let first = document.querySelectorAll('.slides-content')[0]
+  let first = document.querySelector('.slides-content:nth-child(1)')
+  let second = document.querySelector('.slides-content:nth-child(3)')
   slides.style.transition = 'all .5s'
-  console.log(first)
   setTimeout(() => {
     slides.style.transition = 'none'
     slides.insertAdjacentElement('beforeend', first)
     document.documentElement.style.setProperty('--x', '-600px')
   }, 500)
+  if(second.classList[1] === 'metaverse1'){
+    document.documentElement.style.setProperty('--y', '0px')
+  }
+  if(second.classList[1] === 'gamify1'){
+    document.documentElement.style.setProperty('--y', '-250px')
+  }
+  if(second.classList[1] === 'nft1'){
+    document.documentElement.style.setProperty('--y', '-500px')
+  }
 }
 
 function btnPrevious() {
   document.documentElement.style.setProperty('--x', '0px')
   let last = document.querySelectorAll('.slides-content')[slidesArray.length - 1]
+  let second = document.querySelector('.slides-content:nth-child(1)')
   slides.style.transition = 'all .5s'
-  console.log(last)
   setTimeout(() => {
     slides.style.transition = 'none'
     slides.insertAdjacentElement('afterbegin', last)
     document.documentElement.style.setProperty('--x', '-600px')
   }, 500)
+  if(second.classList[1] === 'metaverse2'){
+    document.documentElement.style.setProperty('--y', '0px')
+  }
+  if(second.classList[1] === 'gamify2'){
+    document.documentElement.style.setProperty('--y', '-250px')
+  }
+  if(second.classList[1] === 'nft5'){
+    document.documentElement.style.setProperty('--y', '-500px')
+  }
 }
 
 
