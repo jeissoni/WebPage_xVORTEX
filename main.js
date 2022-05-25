@@ -92,8 +92,43 @@ function fnAbautUs() {
     
   )
   .then(text=> {
+    dvContent.innerHTML = text 
+
+
+//Efecto Scanner//
+
+//const hola = document.querySelector(".aboutus-row")
+const abusScolumn1 = document.querySelector(".aboutus-column:nth-child(1)")
+const abusScolumn2 = document.querySelector(".aboutus-column:nth-child(2)")
+const abusScolumn3 = document.querySelector(".aboutus-column:nth-child(3)")
+const containerScanner1 = document.querySelector(".containerScanner1")
+const containerScanner2 = document.querySelector(".containerScanner2")
+const containerScanner3 = document.querySelector(".containerScanner3")
+
+const observer1 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
+      console.log("hola")
+      //hola.style.setProperty("background","#00C4FF")
+      containerScanner1.style.setProperty("animation-name","scanner")
+      containerScanner2.style.setProperty("animation-name","scanner2")
+      containerScanner3.style.setProperty("animation-name","scanner3")
+    }
+  });
+} 
+
+const observer = new IntersectionObserver(observer1, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 1.0
+})
+///////////////
+
+    observer.observe(abusScolumn1)
+    observer.observe(abusScolumn2)
+    observer.observe(abusScolumn3)
+
     
-    dvContent.innerHTML = text    
   })
 
   dvContent.className = "container"
