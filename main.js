@@ -1,16 +1,16 @@
 const dvContent = document.getElementById('dvContent');
-
 const cargar = document.getElementById('contenedor_carga')
 const menu = document.getElementById('menu-container')
 const botones = document.getElementById('navbar-botones')
-
 const itemHome = document.getElementById('nvHome');
 const itemAbautUs = document.getElementById('nvAbautUs');
 const itemPortfolio = document.getElementById('nvPortfolio');
 const itemBlog = document.getElementById('nvBlog');
 const itemContac = document.getElementById('nvContac');
 const aHomeAbaut = document.getElementById('homeAbaut');
-let rowBlog;
+let slidesArray, next, previous, slides;
+document.documentElement.style.setProperty('--x', '-600px')
+document.documentElement.style.setProperty('--y', '0px')
 
 
 
@@ -28,10 +28,6 @@ let rowBlog;
       }
     });
 // *********************************************************
-
-document.addEventListener('fullscreenchange', (e) => {
-  console.log(e)
-})
 
 menu.addEventListener('click', () => {
   botones.classList.toggle('visible')
@@ -109,8 +105,6 @@ function fnAbautUs() {
 }
 
 
-
-
 function fnPortfolio() {
 
   cargar.classList.remove('contenedor_carga2')
@@ -118,13 +112,19 @@ function fnPortfolio() {
   const url = './portfolio.html'
   dvContent.innerHTML = "" 
 
-  fetch(url)
-  .then(response=> 
+  fetch(url).then( response => 
     response.text()
-  )
-  .then(text=> {
+  ).then(text=> {
      dvContent.innerHTML = text 
+     slidesArray = document.querySelectorAll('.slides-content')
+     slides = document.querySelector('.slides')
+     let cantidad = slidesArray.length * 600
+     document.documentElement.style.setProperty('--z', cantidad + 'px')
+     document.querySelector('.previous').onclick = btnPrevious
+     document.querySelector('.next').onclick = btnNext
   });
+
+  
 
   dvContent.className = "container"
   inactiveClass(itemPortfolio)
@@ -152,8 +152,6 @@ function fnBlog() {
   
     dvContent.innerHTML = text
   });
-
-  rowBlog = document.getElementById('blog-row')
   
 
   dvContent.className = "container"
@@ -161,7 +159,6 @@ function fnBlog() {
   itemBlog.classList.toggle('active')
 
   setTimeout(function(){
-    console.log(rowBlog)
     cargar.classList.toggle('contenedor_carga2')
   }, 500)
 }
@@ -175,6 +172,51 @@ async function fnContact(){
 async function fnCertik() {
   window.open('https://www.certik.com/projects/xvortex', '_blank')
 }
+
+
+
+function btnNext(){
+  document.documentElement.style.setProperty('--x', '-1200px')
+  let first = document.querySelector('.slides-content:nth-child(1)')
+  let second = document.querySelector('.slides-content:nth-child(3)')
+  slides.style.transition = 'all .5s'
+  setTimeout(() => {
+    slides.style.transition = 'none'
+    slides.insertAdjacentElement('beforeend', first)
+    document.documentElement.style.setProperty('--x', '-600px')
+  }, 500)
+  if(second.classList[1] === 'metaverse1'){
+    document.documentElement.style.setProperty('--y', '0px')
+  }
+  if(second.classList[1] === 'gamify1'){
+    document.documentElement.style.setProperty('--y', '-250px')
+  }
+  if(second.classList[1] === 'nft1'){
+    document.documentElement.style.setProperty('--y', '-500px')
+  }
+}
+
+function btnPrevious() {
+  document.documentElement.style.setProperty('--x', '0px')
+  let last = document.querySelectorAll('.slides-content')[slidesArray.length - 1]
+  let second = document.querySelector('.slides-content:nth-child(1)')
+  slides.style.transition = 'all .5s'
+  setTimeout(() => {
+    slides.style.transition = 'none'
+    slides.insertAdjacentElement('afterbegin', last)
+    document.documentElement.style.setProperty('--x', '-600px')
+  }, 500)
+  if(second.classList[1] === 'metaverse2'){
+    document.documentElement.style.setProperty('--y', '0px')
+  }
+  if(second.classList[1] === 'gamify2'){
+    document.documentElement.style.setProperty('--y', '-250px')
+  }
+  if(second.classList[1] === 'nft5'){
+    document.documentElement.style.setProperty('--y', '-500px')
+  }
+}
+
 
 
 
