@@ -88,8 +88,72 @@ function fnAbautUs() {
     
   )
   .then(text=> {
+    dvContent.innerHTML = text 
+
+
+//Efecto Scanner//
+
+//const hola = document.querySelector(".aboutus-row")
+const abusScolumn1 = document.querySelector(".aboutus-column:nth-child(1)")
+const abusScolumn2 = document.querySelector(".aboutus-column:nth-child(2)")
+const abusScolumn3 = document.querySelector(".aboutus-column:nth-child(3)")
+const containerScanner1 = document.querySelector(".containerScanner1")
+const containerScanner2 = document.querySelector(".containerScanner2")
+const containerScanner3 = document.querySelector(".containerScanner3")
+
+//Observador 1//
+const observerOf1 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
+      containerScanner1.style.setProperty("animation-name","scanner")
+    }
+  });
+} 
+
+const observer1 = new IntersectionObserver(observerOf1, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8
+})
+
+//Observador 2//
+const observerOf2 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
+      containerScanner2.style.setProperty("animation-name","scanner2")
+    }
+  });
+} 
+
+const observer2 = new IntersectionObserver(observerOf2, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8
+})
+
+//Observador 3//
+const observerOf3 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
+      containerScanner3.style.setProperty("animation-name","scanner3")
+    }
+  });
+} 
+
+const observer3 = new IntersectionObserver(observerOf3, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8
+})
+
+
+///////////////
+
+    observer1.observe(abusScolumn1)
+    observer2.observe(abusScolumn2)
+    observer3.observe(abusScolumn3)
+
     
-    dvContent.innerHTML = text    
   })
 
   dvContent.className = "container"
