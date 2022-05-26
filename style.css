@@ -1011,47 +1011,79 @@ a {
   width: 200px;
 }
 
+
 .nft1{
-  background: url('./billionaries.jpg') no-repeat center #002935;
+  flex-direction: column;
+  background: url('./gnns-fondo.png');
 }
 
-.nft1 P{
-  font-size: 2em;
-  text-shadow: rgb(255, 0, 0) 0px 0px 12px, rgb(0, 0, 255) 0px 0px 20px;
+.nft1 img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.nft1 p{
+  font-size: 1.7em;
 }
 
 .nft2{
   flex-direction: column;
-  background: url('./whales-fondo.jpg');
+  background: url('./villagers.jpg');
 }
 
 .nft2 img{
-  width: 250px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .nft2 p{
-  font-size: 1.7em;
+  font-size: 1.8em;
 }
 
 .nft3{
-  flex-direction: column;
-  background: url('./hape-fondo.png') center;
+  background: url('./billionaries.jpg') no-repeat center #002935;
 }
 
-.nft3 p{
-  font-size: 1.6em;
+.nft3 P{
+  font-size: 2em;
+  text-shadow: rgb(255, 0, 0) 0px 0px 12px, rgb(0, 0, 255) 0px 0px 20px;
 }
 
 .nft4{
   flex-direction: column;
-  background: url('./aaa-fondo.jpg');
+  background: url('./whales-fondo.jpg');
 }
 
 .nft4 img{
+  width: 250px;
+}
+
+.nft4 p{
+  font-size: 1.7em;
+}
+
+
+.nft5{
+  flex-direction: column;
+  background: url('./hape-fondo.png') center;
+}
+
+.nft5 p{
+  font-size: 1.6em;
+}
+
+.nft6{
+  flex-direction: column;
+  background: url('./aaa-fondo.jpg');
+}
+
+.nft6 img{
   width: 400px;
 }
 
-.nft5{
+.nft7{
   flex-direction: column;
   background: url('./apeevo-fondo.jpg') no-repeat center;
   font-size: 1.5em;
@@ -1171,7 +1203,7 @@ a {
   justify-content: center;
   padding-top: 50px;
   gap: 50px;
-  width: 70%;
+  width: 50%;
   margin-bottom: 100px;
 }
 
@@ -1289,8 +1321,12 @@ a {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #00000082;
+  background: #00000000;
   border-radius: 20px;
+}
+
+.sintransparencia{
+  background: #00000000;
 }
 
 .transparencia img {
@@ -1354,6 +1390,12 @@ a {
 }
 
 @media (max-width: 1850px){
+  .blog-row{
+    width: 70%;
+  }
+}
+
+@media (max-width: 1450px){
   .blog-row{
     width: 90%;
   }
