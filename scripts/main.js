@@ -79,7 +79,7 @@ function fnAbautUs() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = './aboutus.html';  
+  const url = '../html/aboutus.html';  
   dvContent.innerHTML = "" 
 
   fetch(url)
@@ -173,7 +173,7 @@ function fnPortfolio() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = './portfolio.html'
+  const url = '../html/portfolio.html'
   dvContent.innerHTML = "" 
 
   fetch(url).then( response => 
@@ -204,7 +204,7 @@ function fnBlog() {
 
   cargar.classList.remove('contenedor_carga2')
 
-  const url = './blog.html';
+  const url = '../html/blog.html';
   dvContent.innerHTML = "" 
 
 
