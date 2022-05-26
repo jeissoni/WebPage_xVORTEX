@@ -101,28 +101,57 @@ const containerScanner1 = document.querySelector(".containerScanner1")
 const containerScanner2 = document.querySelector(".containerScanner2")
 const containerScanner3 = document.querySelector(".containerScanner3")
 
-const observer1 = (entradas) => {
+//Observador 1//
+const observerOf1 = (entradas) => {
   entradas.forEach((element) => {
     if (element.isIntersecting){
-      console.log("hola")
-      //hola.style.setProperty("background","#00C4FF")
       containerScanner1.style.setProperty("animation-name","scanner")
+    }
+  });
+} 
+
+const observer1 = new IntersectionObserver(observerOf1, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8
+})
+
+//Observador 2//
+const observerOf2 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
       containerScanner2.style.setProperty("animation-name","scanner2")
+    }
+  });
+} 
+
+const observer2 = new IntersectionObserver(observerOf2, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.8
+})
+
+//Observador 3//
+const observerOf3 = (entradas) => {
+  entradas.forEach((element) => {
+    if (element.isIntersecting){
       containerScanner3.style.setProperty("animation-name","scanner3")
     }
   });
 } 
 
-const observer = new IntersectionObserver(observer1, {
+const observer3 = new IntersectionObserver(observerOf3, {
   root: null,
   rootMargin: "0px",
-  threshold: 1.0
+  threshold: 0.8
 })
+
+
 ///////////////
 
-    observer.observe(abusScolumn1)
-    observer.observe(abusScolumn2)
-    observer.observe(abusScolumn3)
+    observer1.observe(abusScolumn1)
+    observer2.observe(abusScolumn2)
+    observer3.observe(abusScolumn3)
 
     
   })

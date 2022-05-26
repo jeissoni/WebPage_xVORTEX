@@ -830,9 +830,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.Abtexto1 p{
   animation: ocultar 2s linear;
 }
 
@@ -844,37 +841,6 @@ a {
     opacity: 1;
   }
 }
-
-.Abtexto2 p{
-  animation: ocultar2 3s linear;
-  animation-fill-mode: forwards;
-  animation-delay: 3s; 
-}
-
-@keyframes ocultar2 {
-  0%{
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.Abtexto3 p {
-  animation: ocultar3 2s linear;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-delay: 6s;
-}
-
-@keyframes ocultar3 {
-  0%{
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} 
 
 .containerScanner1 {
   position: absolute;
