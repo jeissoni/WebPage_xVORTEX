@@ -212,7 +212,7 @@ function btnPrevious() {
   if(second.classList[1] === 'gamify2'){
     document.documentElement.style.setProperty('--y', '-250px')
   }
-  if(second.classList[1] === 'nft5'){
+  if(second.classList[1] === 'nft7'){
     document.documentElement.style.setProperty('--y', '-500px')
   }
 }
