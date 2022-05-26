@@ -1566,10 +1566,17 @@ a {
 }
 
 .body__card_front {
+  position: relative;
   width: 80%;
   height: 80%;
   padding: 15px;
   gap: 20px;
+}
+
+.body__card_front h3{
+  font-size: 1.1em;
+  position: absolute;
+  bottom: 20px;
 }
 
 .body__card_back {
