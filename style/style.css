@@ -710,6 +710,9 @@ a {
   width: 100%;
   min-width: 250px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .aboutus-texto h2 {
@@ -829,7 +832,7 @@ a {
   align-items: start;
   bottom: -10px;
   left: 0;
-  width: 100%;
+  width: 95%;
   height: 520px;
   animation-name: none;
   animation-duration: 3s;
