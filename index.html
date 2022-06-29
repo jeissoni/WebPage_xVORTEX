@@ -8,106 +8,93 @@
   <link rel="stylesheet" href="./style/style.css">
   <title>xVORTEX</title>
 </head>
+
 <body>
-  <div id="contenedor_carga" class="contenedor_carga">
+  <div id="loader-container" class="loader-container">
     <div class="lds-hourglass"></div>
   </div>
   <nav class="navbar">
-      <a class="lgxVortex" id="aHome" href="./index.html">
-        <img src="./images/logo-icon.png" alt="logo">
-        <h1>XVORTEX</h1><p>VENTURES</p>
-      </a>
+    <a class="navbar-lgxVortex" id="aHome" href="./index.html">
+      <img src="./images/logo-icon.png" alt="logo">
+      <h1>XVORTEX</h1>
+      <p>VENTURES</p>
+    </a>
 
-      <div class="menu-container" id="menu-container">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-      
-      <div class="navbar-botones" id="navbar-botones">
-        <ul class="lista-Botones">
+    <div class="navbar-hamburger-icon show-buttons" id="hamburger-icon">
+      <div class="bar1 show-buttons"></div>
+      <div class="bar2 show-buttons"></div>
+      <div class="bar3 show-buttons"></div>
+    </div>
 
-          <li class="nav-link active" id="nvHome">
-            <a>HOME</a>
-          </li>
+    <div class="navbar-buttons-container" id="navbar-buttons">
+      <ul class="navbar-buttons">
 
-          <li class="nav-link" id="nvAbautUs">
-            <a>ABOUT US.</a>
-          </li>
+        <li class="nav-link show-buttons active nvHome">
+          <a class="show-buttons nvHome">HOME</a>
+        </li>
 
-          <li class="nav-link" id="nvPortfolio">
-            <a>PORTFOLIO.</a>
-          </li>
+        <li class="nav-link show-buttons nvAbautUs">
+          <a class="show-buttons nvAbautUs">ABOUT US.</a>
+        </li>
 
-          <li class="nav-link" id="nvBlog">
-            <a>BLOG.</a>
-          </li>
-          <li class="nav-link" id="nvContac">
-            <a>CONTACT.</a>
-          </li>
-        </ul>
-      </div>
+        <li class="nav-link show-buttons nvPortfolio">
+          <a class="show-buttons nvPortfolio">PORTFOLIO.</a>
+        </li>
+
+        <li class="nav-link show-buttons nvBlog">
+          <a class="show-buttons nvBlog">BLOG.</a>
+        </li>
+        <li class="nav-link show-buttons nvContac">
+          <a class="show-buttons nvContac">CONTACT.</a>
+        </li>
+      </ul>
+    </div>
 
   </nav>
 
-  
-
-
-
-
   <section class="banner" id="dvContent">
-
-    <div class="bg-universe">
+    <div class="banner-universe">
       <img src="./images/home/bg-stone-1.png" alt="bg-stone" id="bg-stone">
       <img src="./images/home/bg-stone-2.png" alt="bg-stone-2" id="bg-stone-2">
       <img src="./images/home/front-stone_1.png" alt="bg-stone">
-      <div class="front-text">
-          <div class="column">
-            <div class="welcome">
-              <h1 class="title">WE BUIDL AND HODL, SO YOU CAN RELAX</h1>
-              <div class="descripcion">
-
-                <p style="text-align: justify; padding-top: 10px;">
-                  The xVortex Project is a DeFi protocol built on the Ethereum chain that
-                  aims to generate profit for its supporters
-                  using a unique mixed investment strategy supervised by a governability system.
-                </p>
-                
-              </div>
-
-              <a class="boton-sfy" id="homeAbaut">Get Started</a>
+      <div id="mundo" class="banner-world-container">
+        <div class="banner-world"></div>
+        <div class="banner-world-ilumination"></div>
+      </div>
+      <div class="home-front-text">
+        <div class="home-column">
+          <div class="home-welcome">
+            <h1 class="home-title">WE BUIDL AND HODL, SO YOU CAN RELAX</h1>
+            <div class="home-description">
+              <p style="text-align: justify; padding-top: 10px;">
+                The xVortex Project is a DeFi protocol built on the Ethereum chain that
+                aims to generate profit for its supporters
+                using a unique mixed investment strategy supervised by a governability system.
+              </p>
+            </div>
+            <a class="boton-sfy" id="homeAbaut">Get Started</a>
           </div>
         </div>
       </div>
-      <div id="mundo" class="mundo">
-        <div class="planeta"></div>
-        <div class="bg-u-2"></div>
+    </div>
+  </section>
+
+
+
+
+  <footer id="footer">
+
+    <div class="footer-container">
+
+      <div class="logo-footer">
+        <a class="footer-lgxVortex" href="#">
+          <img src="./images/logo-icon.png" alt="logo" >
+          <h1>XVORTEX</h1>
+          <p>VENTURES</p>
+        </a>
       </div>
 
-      
-
-      <!-- <div id="bg-stone" class="bg-stone"></div>
-      <div id="bg-stone-2" class="bg-stone-2"></div>
-      <div class="front-stone"></div> -->
-    </div>
-  </div>
-</section>
-
-
-
-
-<footer id="footer">
-
-  <div class="footer-container">
-
-        <div class="logo-footer">
-          <a class="lgxVortex" href="#">
-            <img src="./images/logo-icon.png" alt="logo" style="height: 35px;">
-            <h1>XVORTEX</h1><p>VENTURES</p>
-          </a>
-        </div>
-
-    <div class="redes">
+      <div class="footer-socialMedia">
         <a href="https://t.me/xVORTEXPROJECT" target="_blank">
           <h3>TELEGRAM</h3>
         </a>
@@ -126,15 +113,15 @@
         <a href="https://xvortex.medium.com/" target="_blank">
           <h3>MEDIUM</h3>
         </a>
-    </div>
+      </div>
 
-    
-    <div class="creditos">
-      ©2022 xVORTEX.
-    </div>
-    
 
-</footer>
+      <div class="credits">
+        ©2022 xVORTEX.
+      </div>
+
+
+  </footer>
 
 
 

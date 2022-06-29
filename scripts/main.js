@@ -1,295 +1,285 @@
-const dvContent = document.getElementById('dvContent');
-const cargar = document.getElementById('contenedor_carga')
-const menu = document.getElementById('menu-container')
-const botones = document.getElementById('navbar-botones')
-const itemHome = document.getElementById('nvHome');
-const itemAbautUs = document.getElementById('nvAbautUs');
-const itemPortfolio = document.getElementById('nvPortfolio');
-const itemBlog = document.getElementById('nvBlog');
-const itemContac = document.getElementById('nvContac');
-const aHomeAbaut = document.getElementById('homeAbaut');
-let slidesArray, next, previous, slides;
-document.documentElement.style.setProperty('--x', '-600px')
-document.documentElement.style.setProperty('--y', '0px')
+const dvContent = document.getElementById("dvContent");
+const navbar = document.querySelector('.navbar')
+const itemHome = document.querySelector(".nvHome");
+const itemAbautUs = document.querySelector(".nvAbautUs");
+const itemPortfolio = document.querySelector(".nvPortfolio");
+const itemBlog = document.querySelector(".nvBlog");
+const itemContac = document.querySelector(".nvContac");
+const pageloader = document.getElementById("loader-container");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const navbarbuttons = document.querySelector(".navbar-buttons-container");
+const aHomeAbaut = document.getElementById("homeAbaut");
+let carouselSlidesArray, carouselContainer;
+document.documentElement.style.setProperty("--x", "-600px");
+document.documentElement.style.setProperty("--y", "0px");
 
+// home
 
+// *********    Efecto mundo  ******************************
+let mundo = document.getElementById("mundo");
+let bg_stone = document.getElementById("bg-stone");
+let bg_stone_2 = document.getElementById("bg-stone-2");
 
-// *********    Efecto munfdo  ******************************
-    let mundo = document.getElementById('mundo');
-    let bg_stone = document.getElementById('bg-stone');
-    let bg_stone_2 = document.getElementById('bg-stone-2');
-
-    window.addEventListener('scroll', function () {
-      let value = window.scrollY;
-      mundo.style.top = value * 0.25 + 130 + 'px';
-      bg_stone_2.style.left = value * 0.29 + 'px';
-      if(value * 0.25 + 105 < 190){
-        bg_stone.style.bottom = value * 0.25 + 105 + 'px';
-      }
-    });
+window.addEventListener("scroll", function () {
+  let value = window.scrollY;
+  mundo.style.top = value * 0.25 + 130 + "px";
+  bg_stone_2.style.left = value * 0.29 + "px";
+  if (value * 0.25 + 105 < 190) {
+    bg_stone.style.bottom = value * 0.25 + 105 + "px";
+  }
+});
 // *********************************************************
 
-menu.addEventListener('click', () => {
-  botones.classList.toggle('visible')
+// navbar
+
+navbar.addEventListener('click', (element) => {
+  element.target.classList.forEach((className) => {
+    if(className === 'show-buttons'){
+      navbarbuttons.classList.toggle("navbar-visible");
+    }
+    if(className === 'nvHome'){
+      fnHome()
+    }
+    if(className === 'nvAbautUs'){
+      fnAbautUs()
+    }
+    if(className === 'nvPortfolio'){
+      fnPortfolio()
+    }
+    if(className === 'nvBlog'){
+      fnBlog()
+    }
+    if(className === 'nvContac'){
+      fnContact()
+    }
+  })
 })
 
-window.addEventListener('load', function(){
-  document.getElementById('contenedor_carga').classList.toggle('contenedor_carga2')
-})
+aHomeAbaut.onclick = fnAbautUs
 
+window.addEventListener("load", function () {
+  pageloader.classList.toggle("hide-loader");
+});
 function inactiveClass(idItem) {
-
   switch (idItem) {
     case itemHome:
-      itemAbautUs.className = inactiveClassHome.replace("active", "")
-      itemPortfolio.className = inactiveClassHome.replace("active", "")
-      itemBlog.className = inactiveClassHome.replace("active", "")
+      itemAbautUs.className = inactiveClassHome.replace("active", "");
+      itemPortfolio.className = inactiveClassHome.replace("active", "");
+      itemBlog.className = inactiveClassHome.replace("active", "");
       break;
 
     case itemAbautUs:
-      itemHome.className = itemHome.className.replace("active", "")
-      itemPortfolio.className = itemPortfolio.className.replace("active", "")
-      itemBlog.className = itemBlog.className.replace("active", "")
+      itemHome.className = itemHome.className.replace("active", "");
+      itemPortfolio.className = itemPortfolio.className.replace("active", "");
+      itemBlog.className = itemBlog.className.replace("active", "");
       break;
 
     case itemPortfolio:
-      itemHome.className = itemHome.className.replace("active", "")
-      itemAbautUs.className = itemAbautUs.className.replace("active", "")
-      itemBlog.className = itemBlog.className.replace("active", "")
+      itemHome.className = itemHome.className.replace("active", "");
+      itemAbautUs.className = itemAbautUs.className.replace("active", "");
+      itemBlog.className = itemBlog.className.replace("active", "");
       break;
 
     case itemBlog:
-      itemHome.className = itemHome.className.replace("active", "")
-      itemAbautUs.className = itemAbautUs.className.replace("active", "")
-      itemPortfolio.className = itemPortfolio.className.replace("active", "")
-      break;    
+      itemHome.className = itemHome.className.replace("active", "");
+      itemAbautUs.className = itemAbautUs.className.replace("active", "");
+      itemPortfolio.className = itemPortfolio.className.replace("active", "");
+      break;
   }
-
 }
-
-
 
 async function fnHome() {
-  window.location.href = './index.html';
+  window.location.href = "./index.html";
 }
+
+// about us navigation and efects
 
 function fnAbautUs() {
+  pageloader.classList.remove("hide-loader");
 
-  
-
-  cargar.classList.remove('contenedor_carga2')
-
-  const url = '../html/aboutus.html';  
-  dvContent.innerHTML = "" 
+  const url = "../html/aboutus.html";
+  dvContent.innerHTML = "";
 
   fetch(url)
-  .then(response=>
-      response.text() 
-    
-  )
-  .then(text=> {
-    dvContent.innerHTML = text 
+    .then((response) => response.text())
+    .then((text) => {
+      dvContent.innerHTML = text;
 
+      //Efecto Scanner//
+      const abusScolumn1 = document.querySelector(".aboutus-column:nth-child(1)");
+      const abusScolumn2 = document.querySelector(".aboutus-column:nth-child(2)");
+      const abusScolumn3 = document.querySelector(".aboutus-column:nth-child(3)");
+      const containerScanner1 = document.querySelector(".aboutUs-container-scanner1");
+      const containerScanner2 = document.querySelector(".aboutUs-container-scanner2");
+      const containerScanner3 = document.querySelector(".aboutUs-container-scanner3");
 
-//Efecto Scanner//
+      //Observador 1//
+      const observerOf1 = (entradas) => {
+        entradas.forEach((element) => {
+          if (element.isIntersecting) {
+            containerScanner1.style.setProperty("animation-name", "scanner");
+          }
+        });
+      };
 
-//const hola = document.querySelector(".aboutus-row")
-const abusScolumn1 = document.querySelector(".aboutus-column:nth-child(1)")
-const abusScolumn2 = document.querySelector(".aboutus-column:nth-child(2)")
-const abusScolumn3 = document.querySelector(".aboutus-column:nth-child(3)")
-const containerScanner1 = document.querySelector(".containerScanner1")
-const containerScanner2 = document.querySelector(".containerScanner2")
-const containerScanner3 = document.querySelector(".containerScanner3")
+      const observer1 = new IntersectionObserver(observerOf1, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.8,
+      });
 
-//Observador 1//
-const observerOf1 = (entradas) => {
-  entradas.forEach((element) => {
-    if (element.isIntersecting){
-      containerScanner1.style.setProperty("animation-name","scanner")
-    }
-  });
-} 
+      //Observador 2//
+      const observerOf2 = (entradas) => {
+        entradas.forEach((element) => {
+          if (element.isIntersecting) {
+            containerScanner2.style.setProperty("animation-name", "scanner");
+          }
+        });
+      };
 
-const observer1 = new IntersectionObserver(observerOf1, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.8
-})
+      const observer2 = new IntersectionObserver(observerOf2, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.8,
+      });
 
-//Observador 2//
-const observerOf2 = (entradas) => {
-  entradas.forEach((element) => {
-    if (element.isIntersecting){
-      containerScanner2.style.setProperty("animation-name","scanner2")
-    }
-  });
-} 
+      //Observador 3//
+      const observerOf3 = (entradas) => {
+        entradas.forEach((element) => {
+          if (element.isIntersecting) {
+            containerScanner3.style.setProperty("animation-name", "scanner");
+          }
+        });
+      };
 
-const observer2 = new IntersectionObserver(observerOf2, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.8
-})
+      const observer3 = new IntersectionObserver(observerOf3, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.8,
+      });
 
-//Observador 3//
-const observerOf3 = (entradas) => {
-  entradas.forEach((element) => {
-    if (element.isIntersecting){
-      containerScanner3.style.setProperty("animation-name","scanner3")
-    }
-  });
-} 
+      ///////////////
 
-const observer3 = new IntersectionObserver(observerOf3, {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.8
-})
+      observer1.observe(abusScolumn1);
+      observer2.observe(abusScolumn2);
+      observer3.observe(abusScolumn3);
+    });
 
+  dvContent.className = "container";
 
-///////////////
+  inactiveClass(itemAbautUs);
 
-    observer1.observe(abusScolumn1)
-    observer2.observe(abusScolumn2)
-    observer3.observe(abusScolumn3)
+  itemAbautUs.classList.toggle("active");
 
-    
-  })
-
-  dvContent.className = "container"
-
-  inactiveClass(itemAbautUs)
-
-  itemAbautUs.classList.toggle('active')
-
-  setTimeout(function(){
-    cargar.classList.toggle('contenedor_carga2')
-  }, 500)
-
+  setTimeout(function () {
+    pageloader.classList.toggle("hide-loader");
+  }, 500);
 }
 
+// portfolio navigation
 
 function fnPortfolio() {
+  pageloader.classList.remove("hide-loader");
 
-  cargar.classList.remove('contenedor_carga2')
-
-  const url = '../html/portfolio.html'
-  dvContent.innerHTML = "" 
-
-  fetch(url).then( response => 
-    response.text()
-  ).then(text=> {
-     dvContent.innerHTML = text 
-     slidesArray = document.querySelectorAll('.slides-content')
-     slides = document.querySelector('.slides')
-     let cantidad = slidesArray.length * 600
-     document.documentElement.style.setProperty('--z', cantidad + 'px')
-     document.querySelector('.previous').onclick = btnPrevious
-     document.querySelector('.next').onclick = btnNext
-  });
-
-  
-
-  dvContent.className = "container"
-  inactiveClass(itemPortfolio)
-  itemPortfolio.classList.toggle('active')
-
-  setTimeout(function(){
-    cargar.classList.toggle('contenedor_carga2')
-  }, 500)
-}
-
-
-function fnBlog() {
-
-  cargar.classList.remove('contenedor_carga2')
-
-  const url = '../html/blog.html';
-  dvContent.innerHTML = "" 
-
+  const url = "../html/portfolio.html";
+  dvContent.innerHTML = "";
 
   fetch(url)
-  .then(response=> 
-    response.text()
-  )
-  .then(text=> {
-  
-    dvContent.innerHTML = text
-  });
-  
+    .then((response) => response.text())
+    .then((text) => {
+      dvContent.innerHTML = text;
+      carouselSlidesArray = document.querySelectorAll(".slides-content");
+      carouselContainer = document.querySelector(".portfolio-carousel-slides");
+      let cantidad = carouselSlidesArray.length * 600;
+      document.documentElement.style.setProperty("--z", cantidad + "px");
+      document.querySelector(".portfolio-button-previous").onclick = btnPrevious;
+      document.querySelector(".portfolio-button-next").onclick = btnNext;
+    });
 
-  dvContent.className = "container"
-  inactiveClass(itemBlog)
-  itemBlog.classList.toggle('active')
+  dvContent.className = "container";
+  inactiveClass(itemPortfolio);
+  itemPortfolio.classList.toggle("active");
 
-  setTimeout(function(){
-    cargar.classList.toggle('contenedor_carga2')
-  }, 500)
+  setTimeout(function () {
+    pageloader.classList.toggle("hide-loader");
+  }, 500);
 }
 
-async function fnContact(){  
-  const dvFooter = document.getElementById('footer')
-  dvFooter.scrollIntoView()
+// blog navigation
+
+function fnBlog() {
+  pageloader.classList.remove("hide-loader");
+
+  const url = "../html/blog.html";
+  dvContent.innerHTML = "";
+
+  fetch(url)
+    .then((response) => response.text())
+    .then((text) => {
+      dvContent.innerHTML = text;
+    });
+
+  dvContent.className = "container";
+  inactiveClass(itemBlog);
+  itemBlog.classList.toggle("active");
+
+  setTimeout(function () {
+    pageloader.classList.toggle("hide-loader");
+  }, 500);
 }
 
+async function fnContact() {
+  const dvFooter = document.getElementById("footer");
+  dvFooter.scrollIntoView();
+}
 
 async function fnCertik() {
-  window.open('https://www.certik.com/projects/xvortex', '_blank')
+  window.open("https://www.certik.com/projects/xvortex", "_blank");
 }
 
+// portolio carousel navigation
 
-
-function btnNext(){
-  document.documentElement.style.setProperty('--x', '-1200px')
-  let first = document.querySelector('.slides-content:nth-child(1)')
-  let second = document.querySelector('.slides-content:nth-child(3)')
-  slides.style.transition = 'all .5s'
+function btnNext() {
+  document.documentElement.style.setProperty("--x", "-1200px");
+  let first = document.querySelector(".slides-content:nth-child(1)");
+  let second = document.querySelector(".slides-content:nth-child(3)");
+  carouselContainer.style.transition = "all .5s";
   setTimeout(() => {
-    slides.style.transition = 'none'
-    slides.insertAdjacentElement('beforeend', first)
-    document.documentElement.style.setProperty('--x', '-600px')
-  }, 500)
-  if(second.classList[1] === 'metaverse1'){
-    document.documentElement.style.setProperty('--y', '0px')
+    carouselContainer.style.transition = "none";
+    carouselContainer.insertAdjacentElement("beforeend", first);
+    document.documentElement.style.setProperty("--x", "-600px");
+  }, 500);
+  if (second.classList[1] === "portfolio-content-LifeOut") {
+    document.documentElement.style.setProperty("--y", "0px");
   }
-  if(second.classList[1] === 'gamify1'){
-    document.documentElement.style.setProperty('--y', '-250px')
+  if (second.classList[1] === "portfolio-content-metafighter") {
+    document.documentElement.style.setProperty("--y", "-250px");
   }
-  if(second.classList[1] === 'nft1'){
-    document.documentElement.style.setProperty('--y', '-500px')
+  if (second.classList[1] === "portfolio-content-gnss") {
+    document.documentElement.style.setProperty("--y", "-500px");
   }
 }
 
 function btnPrevious() {
-  document.documentElement.style.setProperty('--x', '0px')
-  let last = document.querySelectorAll('.slides-content')[slidesArray.length - 1]
-  let second = document.querySelector('.slides-content:nth-child(1)')
-  slides.style.transition = 'all .5s'
+  document.documentElement.style.setProperty("--x", "0px");
+  let last =
+    document.querySelectorAll(".slides-content")[
+      carouselSlidesArray.length - 1
+    ];
+  let second = document.querySelector(".slides-content:nth-child(1)");
+  carouselContainer.style.transition = "all .5s";
   setTimeout(() => {
-    slides.style.transition = 'none'
-    slides.insertAdjacentElement('afterbegin', last)
-    document.documentElement.style.setProperty('--x', '-600px')
-  }, 500)
-  if(second.classList[1] === 'metaverse2'){
-    document.documentElement.style.setProperty('--y', '0px')
+    carouselContainer.style.transition = "none";
+    carouselContainer.insertAdjacentElement("afterbegin", last);
+    document.documentElement.style.setProperty("--x", "-600px");
+  }, 500);
+  if (second.classList[1] === "portfolio-content-netvrk") {
+    document.documentElement.style.setProperty("--y", "0px");
   }
-  if(second.classList[1] === 'gamify2'){
-    document.documentElement.style.setProperty('--y', '-250px')
+  if (second.classList[1] === "portfolio-content-kawaiI") {
+    document.documentElement.style.setProperty("--y", "-250px");
   }
-  if(second.classList[1] === 'nft7'){
-    document.documentElement.style.setProperty('--y', '-500px')
+  if (second.classList[1] === "portfolio-content-aaaEvo") {
+    document.documentElement.style.setProperty("--y", "-500px");
   }
 }
-
-
-
-
-
-itemAbautUs.onclick = fnAbautUs;
-itemBlog.onclick = fnBlog;
-itemContac.onclick = fnContact;
-itemHome.onclick = fnHome;
-itemPortfolio.onclick = fnPortfolio;
-aHomeAbaut.onclick = fnAbautUs
-
-
